@@ -160,11 +160,18 @@
     }
       .footer-links .icon { vertical-align: text-bottom; margin-right: 6px; }
       /* Nav CTA button styles (for CoSimPlat / REPlay) */
-    .nav .nav-cta { position: relative; overflow: hidden; display:inline-flex; align-items:center; gap:8px; padding: 8px 12px; border-radius: 999px; border: 1px solid var(--border); background: #111828; color: var(--text); font-weight: 600; text-decoration:none; box-shadow: var(--shadow); transition: transform 120ms ease; }
+    .nav .nav-cta { position: relative; overflow: hidden; display:inline-flex; align-items:center; gap:6px; padding: 6px 10px; border-radius: 999px; border: 1px solid var(--border); background: #111828; color: var(--text); font-weight: 600; font-size: 0.92rem; text-decoration:none; box-shadow: var(--shadow); transition: transform 120ms ease; }
     .nav .nav-cta:active { transform: translateY(1px); }
     .nav .nav-cta::before { content: ""; position: absolute; inset: -2px; border-radius: inherit; background: linear-gradient(135deg, var(--brand-strong), var(--accent)); transform: translateX(-120%) translateY(60%) rotate(-8deg); transition: transform 220ms ease; z-index: 0; }
     .nav .nav-cta:hover::before { transform: translateX(0%) translateY(0%) rotate(0deg); }
     .nav .nav-cta > * { position: relative; z-index: 1; }
+      /* Expandable deliverables */
+    .deliverable details { flex: 1; }
+    .deliverable summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 10px; }
+    .deliverable summary::-webkit-details-marker { display: none; }
+    .deliverable summary::after { content: "▸"; opacity: 0.7; margin-left: 8px; transition: transform 160ms ease; }
+    .deliverable[open] summary::after, .deliverable details[open] > summary::after { transform: rotate(90deg); }
+    .deliverable details > div { color: var(--muted); margin-top: 8px; }
   </style>
 </head>
 <body>
@@ -324,25 +331,24 @@
     <h2 class="section-title">Deliverables</h2>
     <div class="deliverables">
       <div class="deliverable">
-        <div>
-          <strong>D1.1 — Project Charter</strong>
-          <div class="muted" style="color:var(--muted)">Short description placeholder</div>
-        </div>
+        <details>
+          <summary><strong>D1.1 — Project Charter</strong></summary>
+          <div>Short description placeholder. Expand this area with scope, lead partner, and publication date.</div>
+        </details>
         <a class="btn" href="#"><span>Open</span></a>
       </div>
       <div class="deliverable">
-        <div>
-          <strong>D2.2 — Data Management Plan</strong>
-          <div class="muted" style="color:var(--muted)">Short description placeholder</div>
-        </div>
+        <details>
+          <summary><strong>D2.2 — Data Management Plan</strong></summary>
+          <div>Short description placeholder. Outline data lifecycle, FAIR principles, and repository links.</div>
+        </details>
         <a class="btn" href="#"><span>Open</span></a>
       </div>
       <div class="deliverable">
-        <div>
-          <strong>D3.1 — Methodology Overview</strong>
-          <div class="muted" style="color:var(--muted)">Short description placeholder</div>
-        </div>
-        <span class="badge">Coming soon</span>
+        <details>
+          <summary><strong>D3.1 — Methodology Overview</strong> <span class="badge">Coming soon</span></summary>
+          <div>Short description placeholder. Expected release timeline and contact for feedback.</div>
+        </details>
       </div>
     </div>
   </section>
