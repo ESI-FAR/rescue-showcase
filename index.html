@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RESCUE Project — Showcase</title>
+  <meta name="description" content="RESCUE: Responsive Science Communication & Understanding — project showcase and resources." />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:title" content="RESCUE Project — Showcase" />
+  <meta property="og:description" content="Explore the RESCUE project's goals, partners, team, and deliverables." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://your-domain.example/" />
+  <meta property="og:image" content="https://your-domain.example/social-card.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="RESCUE Project — Showcase" />
+  <meta name="twitter:description" content="Science communication showcase for the RESCUE project." />
+  <meta name="twitter:image" content="https://your-domain.example/social-card.png" />
+
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0b0f17;
+      --surface: #0f1624;
+      --card: #141c2e;
+      --text: #e6edf3;
+      --muted: #9fb0c3;
+      --brand: #2bb0ed;  /* science-teal */
+      --brand-strong: #0ea5e9;
+      --accent: #a78bfa; /* soft violet */
+      --border: #22314b;
+      --radius: 16px;
+      --shadow: 0 10px 30px rgba(0,0,0,0.25);
+      --maxw: 1100px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin:0; font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; background: var(--bg); color: var(--text); }
+    a { color: var(--brand); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Header */
+    .site-header { position: sticky; top:0; z-index: 50; backdrop-filter: blur(8px); background: linear-gradient(180deg, rgba(10,14,22,0.9), rgba(10,14,22,0.6)); border-bottom: 1px solid var(--border); }
+    .nav { max-width: var(--maxw); margin: 0 auto; display:flex; align-items:center; justify-content:space-between; padding: 14px 20px; }
+    .brand { display:flex; align-items:center; gap:10px; font-weight: 700; letter-spacing: 0.3px; }
+    .brand .logo { width: 28px; height: 28px; border-radius: 6px; background: linear-gradient(135deg, var(--brand-strong), var(--accent)); box-shadow: var(--shadow); }
+    .nav a { font-weight: 500; color: var(--text); opacity: 0.9; }
+    .nav a:hover { opacity: 1; }
+    .nav ul { list-style:none; display:flex; gap: 18px; margin:0; padding:0; }
+
+    /* Hero */
+    .hero { max-width: var(--maxw); margin: 0 auto; padding: 64px 20px 40px; display:grid; grid-template-columns: 1fr; gap: 18px; }
+    .hero h1 { font-size: clamp(28px, 4vw, 40px); line-height: 1.1; margin: 0; }
+    .hero p { color: var(--muted); max-width: 70ch; }
+    .cta { display:flex; gap:12px; margin-top:10px; }
+    .btn { display:inline-flex; align-items:center; gap:8px; padding: 12px 16px; border-radius: 999px; border: 1px solid var(--border); background: #111828; color: var(--text); font-weight: 600; text-decoration:none; box-shadow: var(--shadow); }
+    .btn-primary { background: linear-gradient(135deg, var(--brand-strong), var(--accent)); border-color: transparent; color: #0b0f17; }
+
+    /* Sections */
+    section { scroll-margin-top: 90px; }
+    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 44px 20px; }
+    .section-title { font-size: 24px; margin: 0 0 20px; }
+    .two-col { display:grid; grid-template-columns: 1fr; gap: 22px; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); padding: 20px; }
+    .card h3 { margin-top:0; }
+    .img-placeholder { aspect-ratio: 16/10; width: 100%; border-radius: 12px; background: linear-gradient(135deg, #0f2034, #1b2b44); border: 1px dashed var(--border); display:grid; place-items:center; color: var(--muted); font-weight:600; }
+
+    /* Alternating layout for feature sections */
+    .feature { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .feature-grid { display:grid; grid-template-columns: 1fr; gap: 24px; align-items:center; }
+    .feature .text { display:flex; flex-direction:column; gap: 10px; }
+
+    /* Partners */
+    .partner-grid { display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 18px; }
+    .partner { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 14px; display:flex; align-items:center; justify-content:center; min-height: 84px; }
+
+    /* Team */
+    .team-grid { display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 18px; }
+    .member { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 14px; display:flex; gap:12px; align-items:center; }
+    .avatar { width: 56px; height: 56px; border-radius: 50%; background: #0d2136; border: 2px solid #1f2f48; object-fit: cover; }
+
+    /* Deliverables */
+    .deliverables { display:grid; grid-template-columns: 1fr; gap: 12px; }
+    .deliverable { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 14px; display:flex; align-items:center; justify-content:space-between; }
+    .badge { font-size: 12px; font-weight:700; padding: 4px 8px; border-radius: 999px; background: #13243d; border: 1px solid var(--border); color: var(--muted); }
+
+    /* Footer */
+    footer { border-top: 1px solid var(--border); background: #0a1220; }
+    .footer-inner { max-width: var(--maxw); margin: 0 auto; padding: 24px 20px; display:flex; flex-wrap: wrap; gap: 10px; align-items:center; justify-content: space-between; color: var(--muted); }
+    .footer-links { display:flex; gap: 16px; }
+
+    /* Larger screens */
+    @media (min-width: 860px) {
+      .hero { grid-template-columns: 2.2fr 1.4fr; align-items:center; }
+      .two-col { grid-template-columns: 1.1fr 1fr; }
+      .feature-grid { grid-template-columns: 1.1fr 1fr; }
+      .partner-grid { grid-template-columns: repeat(4, minmax(0,1fr)); }
+      .team-grid { grid-template-columns: repeat(4, minmax(0,1fr)); }
+    }
+
+    /* Alternate left-right for features */
+    .feature:nth-of-type(odd) .feature-grid { direction: rtl; }
+    .feature:nth-of-type(odd) .feature-grid > * { direction: ltr; }
+  </style>
+</head>
+<body>
+  <!-- Header / Navigation -->
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <a href="#top" class="home">RESCUE</a>
+      </div>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#sections">Highlights</a></li>
+        <li><a href="#partners">Partners</a></li>
+        <li><a href="#team">Team</a></li>
+        <li><a href="#deliverables">Deliverables</a></li>
+        <li><a href="#ack">Acknowledgements</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <main id="top" class="hero" role="main">
+    <div>
+      <h1>RESCUE — Resilience and Cyber Security of Integrated Cyber-Physical Energy Systems</h1>
+      <p>
+        A public showcase for the RESCUE project. Explore goals, methods, partners, and outputs.
+        This proof‑of‑concept uses accessible, responsive, and lightweight markup suitable for GitHub Pages.
+      </p>
+      <div class="cta">
+        <a class="btn btn-primary" href="#sections">Explore the highlights</a>
+        <a class="btn" href="#deliverables">View deliverables</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="img-placeholder">Hero / Illustration Placeholder</div>
+      <p style="color:var(--muted); margin-top:12px">Replace with a project diagram or photo. Recommended size 1200×630 to match social card.</p>
+    </div>
+  </main>
+
+  <!-- About / Intro -->
+  <section id="about" class="wrap">
+    <h2 class="section-title">About the Project</h2>
+    <p style="color:var(--muted); max-width: 75ch">
+      Short description placeholder. Summarize the RESCUE project's objectives, research questions, and potential impact.
+      Keep this concise and public‑facing. Link to the full README or documentation where appropriate.
+    </p>
+  </section>
+
+  <!-- Three alternating feature sections (two columns each) -->
+  <section id="sections" class="feature">
+    <div class="wrap feature-grid">
+      <div class="card">
+        <div class="img-placeholder">Card Visual Placeholder</div>
+      </div>
+      <div class="text">
+        <h3>Section One — Placeholder Title</h3>
+        <p class="muted">Brief description placeholder. Outline the challenge and how RESCUE addresses it.</p>
+        <div>
+          <a class="btn btn-primary" href="#">Explore</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="feature">
+    <div class="wrap feature-grid">
+      <div class="card">
+        <div class="img-placeholder">Card Visual Placeholder</div>
+      </div>
+      <div class="text">
+        <h3>Section Two — Placeholder Title</h3>
+        <p class="muted">Brief description placeholder. Methods, data sources, or experimental setup.</p>
+        <div>
+          <a class="btn btn-primary" href="#">Explore</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="feature">
+    <div class="wrap feature-grid">
+      <div class="card">
+        <div class="img-placeholder">Card Visual Placeholder</div>
+      </div>
+      <div class="text">
+        <h3>Section Three — Placeholder Title</h3>
+        <p class="muted">Brief description placeholder. Key findings, early results, or expected outcomes.</p>
+        <div>
+          <a class="btn btn-primary" href="#">Explore</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Partners -->
+  <section id="partners" class="wrap">
+    <h2 class="section-title">Project Partners</h2>
+    <div class="partner-grid" aria-label="Partner logos">
+      <div class="partner">Partner Logo 1</div>
+      <div class="partner">Partner Logo 2</div>
+      <div class="partner">Partner Logo 3</div>
+      <div class="partner">Partner Logo 4</div>
+      <div class="partner">Partner Logo 5</div>
+      <div class="partner">Partner Logo 6</div>
+      <div class="partner">Partner Logo 7</div>
+      <div class="partner">Partner Logo 8</div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section id="team" class="wrap">
+    <h2 class="section-title">Team</h2>
+    <div class="team-grid">
+      <div class="member">
+        <img class="avatar" src="https://placehold.co/112x112" alt="Member name" />
+        <div>
+          <strong>Member Name</strong>
+          <div style="color:var(--muted)">Role / Institution</div>
+        </div>
+      </div>
+      <div class="member">
+        <img class="avatar" src="https://placehold.co/112x112" alt="Member name" />
+        <div>
+          <strong>Member Name</strong>
+          <div style="color:var(--muted)">Role / Institution</div>
+        </div>
+      </div>
+      <div class="member">
+        <img class="avatar" src="https://placehold.co/112x112" alt="Member name" />
+        <div>
+          <strong>Member Name</strong>
+          <div style="color:var(--muted)">Role / Institution</div>
+        </div>
+      </div>
+      <div class="member">
+        <img class="avatar" src="https://placehold.co/112x112" alt="Member name" />
+        <div>
+          <strong>Member Name</strong>
+          <div style="color:var(--muted)">Role / Institution</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Deliverables -->
+  <section id="deliverables" class="wrap">
+    <h2 class="section-title">Deliverables</h2>
+    <div class="deliverables">
+      <div class="deliverable">
+        <div>
+          <strong>D1.1 — Project Charter</strong>
+          <div class="muted" style="color:var(--muted)">Short description placeholder</div>
+        </div>
+        <a class="btn" href="#">Open</a>
+      </div>
+      <div class="deliverable">
+        <div>
+          <strong>D2.2 — Data Management Plan</strong>
+          <div class="muted" style="color:var(--muted)">Short description placeholder</div>
+        </div>
+        <a class="btn" href="#">Open</a>
+      </div>
+      <div class="deliverable">
+        <div>
+          <strong>D3.1 — Methodology Overview</strong>
+          <div class="muted" style="color:var(--muted)">Short description placeholder</div>
+        </div>
+        <span class="badge">Coming soon</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Acknowledgements -->
+  <section id="ack" class="wrap">
+    <h2 class="section-title">Acknowledgements</h2>
+    <p style="color:var(--muted); max-width: 75ch">
+      This work is supported by [Funder / Grant number placeholder]. We thank our collaborators and community reviewers for their feedback.
+    </p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div>© <span id="year"></span> RESCUE Project</div>
+      <div class="footer-links">
+        <a href="terms.html">Terms</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="#top">Back to top</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Update copyright year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
