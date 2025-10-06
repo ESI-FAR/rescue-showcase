@@ -45,20 +45,32 @@
 
     /* Header */
     .site-header { position: sticky; top:0; z-index: 50; backdrop-filter: blur(8px); background: linear-gradient(180deg, rgba(10,14,22,0.9), rgba(10,14,22,0.6)); border-bottom: 1px solid var(--border); }
-    .nav { max-width: var(--maxw); margin: 0 auto; display:flex; align-items:center; justify-content:space-between; padding: 14px 20px; }
+    .nav { max-width: var(--maxw); margin: 0 auto; display:flex; align-items:center; justify-content:space-between; padding: 14px 20px; position: relative; }
     .brand { display:flex; align-items:center; gap:10px; font-weight: 700; letter-spacing: 0.3px; }
     .brand .logo { width: 28px; height: 28px; border-radius: 6px; background: linear-gradient(135deg, var(--brand-strong), var(--accent)); box-shadow: var(--shadow); }
     .nav a { font-weight: 500; color: var(--text); opacity: 0.9; }
     .nav a:hover { opacity: 1; }
     .nav ul { list-style:none; display:flex; gap: 18px; margin:0; padding:0; }
 
+    /* Mobile menu toggle */
+    .menu-toggle { display:none; background: transparent; border: 1px solid var(--border); border-radius: 10px; padding: 8px 10px; color: var(--text); cursor: pointer; }
+    .menu-toggle svg { display:block; }
+
     /* Hero */
     .hero { max-width: var(--maxw); margin: 0 auto; padding: 64px 20px 40px; display:grid; grid-template-columns: 1fr; gap: 18px; }
     .hero h1 { font-size: clamp(28px, 4vw, 40px); line-height: 1.1; margin: 0; }
     .hero p { color: var(--muted); max-width: 70ch; }
-    .cta { display:flex; gap:12px; margin-top:10px; }
-    .btn { display:inline-flex; align-items:center; gap:8px; padding: 12px 16px; border-radius: 999px; border: 1px solid var(--border); background: #111828; color: var(--text); font-weight: 600; text-decoration:none; box-shadow: var(--shadow); }
-    .btn-primary { background: linear-gradient(135deg, var(--brand-strong), var(--accent)); border-color: transparent; color: #0b0f17; }
+    .cta { display:flex; gap:12px; margin-top:10px; flex-wrap: wrap; }
+
+    /* Buttons with fast bottom-left→right sweep on hover */
+    .btn { position: relative; overflow: hidden; display:inline-flex; align-items:center; gap:8px; padding: 12px 16px; border-radius: 999px; border: 1px solid var(--border); background: #111828; color: var(--text); font-weight: 600; text-decoration:none; box-shadow: var(--shadow); transition: transform 120ms ease; }
+    .btn:active { transform: translateY(1px); }
+    .btn::before { content: ""; position: absolute; inset: -2px; border-radius: inherit; background: linear-gradient(135deg, var(--brand-strong), var(--accent)); transform: translateX(-120%) translateY(60%) rotate(-8deg); transition: transform 220ms ease; z-index: 0; }
+    .btn > * { position: relative; z-index: 1; }
+    .btn:hover::before { transform: translateX(0%) translateY(0%) rotate(0deg); }
+
+    .btn-primary { border-color: transparent; color: #0b0f17; background: linear-gradient(135deg, var(--brand-strong), var(--accent)); }
+    .btn-primary::before { background: linear-gradient(135deg, #fff, #d0eaff); opacity: 0.35; }
 
     /* Sections */
     section { scroll-margin-top: 90px; }
@@ -102,10 +114,18 @@
       .team-grid { grid-template-columns: repeat(4, minmax(0,1fr)); }
     }
 
+    /* Mobile nav */
+    @media (max-width: 859px) {
+      .menu-toggle { display:block; }
+      .nav ul { position: absolute; top: 100%; right: 20px; left: 20px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 12px; display:none; flex-direction: column; gap: 10px; box-shadow: var(--shadow); }
+      .nav ul.open { display: flex; }
+    }
+
     /* Alternate left-right for features */
     .feature:nth-of-type(odd) .feature-grid { direction: rtl; }
     .feature:nth-of-type(odd) .feature-grid > * { direction: ltr; }
-      /* Ambient moving light-blue glow */
+
+    /* Ambient moving light-blue glow */
     header, main, section, footer { position: relative; z-index: 1; }
     body::before {
       content: "";
@@ -125,6 +145,7 @@
     }
     @media (prefers-reduced-motion: reduce) {
       body::before { animation: none; }
+      .btn::before { transition: none; }
     }
   </style>
 </head>
@@ -136,7 +157,14 @@
         <div class="logo" aria-hidden="true"></div>
         <a href="#top" class="home">RESCUE</a>
       </div>
-      <ul>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="primary-menu" aria-label="Toggle menu">
+        <svg width="22" height="18" viewBox="0 0 22 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="0" y="1" width="22" height="2" rx="1" fill="currentColor"/>
+          <rect x="0" y="8" width="22" height="2" rx="1" fill="currentColor"/>
+          <rect x="0" y="15" width="22" height="2" rx="1" fill="currentColor"/>
+        </svg>
+      </button>
+      <ul id="primary-menu">
         <li><a href="#about">About</a></li>
         <li><a href="#sections">Highlights</a></li>
         <li><a href="#partners">Partners</a></li>
@@ -156,8 +184,8 @@
         This proof‑of‑concept uses accessible, responsive, and lightweight markup suitable for GitHub Pages.
       </p>
       <div class="cta">
-        <a class="btn btn-primary" href="#sections">Explore the highlights</a>
-        <a class="btn" href="#deliverables">View deliverables</a>
+        <a class="btn btn-primary" href="#sections"><span>Explore the highlights</span></a>
+        <a class="btn" href="#deliverables"><span>View deliverables</span></a>
       </div>
     </div>
     <div class="card">
@@ -185,7 +213,7 @@
         <h3>Section One — Placeholder Title</h3>
         <p class="muted">Brief description placeholder. Outline the challenge and how RESCUE addresses it.</p>
         <div>
-          <a class="btn btn-primary" href="#">Explore</a>
+          <a class="btn btn-primary" href="#"><span>Explore</span></a>
         </div>
       </div>
     </div>
@@ -200,7 +228,7 @@
         <h3>Section Two — Placeholder Title</h3>
         <p class="muted">Brief description placeholder. Methods, data sources, or experimental setup.</p>
         <div>
-          <a class="btn btn-primary" href="#">Explore</a>
+          <a class="btn btn-primary" href="#"><span>Explore</span></a>
         </div>
       </div>
     </div>
@@ -215,7 +243,7 @@
         <h3>Section Three — Placeholder Title</h3>
         <p class="muted">Brief description placeholder. Key findings, early results, or expected outcomes.</p>
         <div>
-          <a class="btn btn-primary" href="#">Explore</a>
+          <a class="btn btn-primary" href="#"><span>Explore</span></a>
         </div>
       </div>
     </div>
@@ -280,14 +308,14 @@
           <strong>D1.1 — Project Charter</strong>
           <div class="muted" style="color:var(--muted)">Short description placeholder</div>
         </div>
-        <a class="btn" href="#">Open</a>
+        <a class="btn" href="#"><span>Open</span></a>
       </div>
       <div class="deliverable">
         <div>
           <strong>D2.2 — Data Management Plan</strong>
           <div class="muted" style="color:var(--muted)">Short description placeholder</div>
         </div>
-        <a class="btn" href="#">Open</a>
+        <a class="btn" href="#"><span>Open</span></a>
       </div>
       <div class="deliverable">
         <div>
@@ -322,6 +350,16 @@
   <script>
     // Update copyright year
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile menu toggle
+    const toggle = document.querySelector('.menu-toggle');
+    const menu = document.getElementById('primary-menu');
+    if (toggle && menu) {
+      toggle.addEventListener('click', () => {
+        const isOpen = menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', String(isOpen));
+      });
+    }
   </script>
 </body>
 </html>
