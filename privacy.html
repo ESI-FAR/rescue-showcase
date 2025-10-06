@@ -1,0 +1,103 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Privacy — RESCUE Project</title>
+  <meta name="description" content="Privacy policy — structure only" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="/favicon.ico" />
+  <style>
+    :root{--bg:#0b0f17;--surface:#0f1624;--card:#141c2e;--text:#e6edf3;--muted:#9fb0c3;--brand:#2bb0ed;--accent:#a78bfa;--border:#22314b;--radius:16px;--shadow:0 10px 30px rgba(0,0,0,.25);--maxw:960px}
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;background:var(--bg);color:var(--text);min-height:100vh;display:flex;flex-direction:column}
+    a{color:var(--brand);text-decoration:none} a:hover{text-decoration:underline}
+    header{position:sticky;top:0;z-index:20;backdrop-filter:blur(8px);background:linear-gradient(180deg,rgba(10,14,22,.9),rgba(10,14,22,.6));border-bottom:1px solid var(--border)}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 20px;max-width:var(--maxw);margin:0 auto}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:700}
+    .logo{width:28px;height:28px;border-radius:6px;background:linear-gradient(135deg,#0ea5e9,var(--accent));box-shadow:var(--shadow)}
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:28px 20px} main{flex:1}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow)}
+    .panel{padding:24px}
+    h1{margin:.2rem 0 1rem} h2{margin:1.2rem 0 .5rem}
+    footer{border-top:1px solid var(--border);background:#0a1220}
+    .footer-inner{max-width:var(--maxw);margin:0 auto;padding:22px 20px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;color:var(--muted)}
+    .muted{color:var(--muted)}
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav" aria-label="Primary">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <a href="index.html">RESCUE</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <section class="card panel" aria-labelledby="p-title">
+      <h1 id="p-title">Privacy Policy</h1>
+      <p class="muted">Structure only — fill in your content below.</p>
+      <hr style="border-color:var(--border);opacity:.3">
+      <section aria-labelledby="p-intro">
+        <h2 id="p-intro">1. Introduction</h2>
+        <!-- Introductory statement placeholder -->
+      </section>
+      <section aria-labelledby="p-collect">
+        <h2 id="p-collect">2. Data We Collect</h2>
+        <!-- List categories of personal/data types -->
+      </section>
+      <section aria-labelledby="p-use">
+        <h2 id="p-use">3. How We Use Data</h2>
+        <!-- Purposes of processing -->
+      </section>
+      <section aria-labelledby="p-legal">
+        <h2 id="p-legal">4. Legal Bases</h2>
+        <!-- GDPR/other legal bases placeholders -->
+      </section>
+      <section aria-labelledby="p-cookies">
+        <h2 id="p-cookies">5. Cookies</h2>
+        <!-- Link to cookie banner/settings; categories summary -->
+      </section>
+      <section aria-labelledby="p-share">
+        <h2 id="p-share">6. Sharing & Transfers</h2>
+        <!-- Processors, international transfers, safeguards -->
+      </section>
+      <section aria-labelledby="p-retention">
+        <h2 id="p-retention">7. Data Retention</h2>
+        <!-- Retention periods/policies -->
+      </section>
+      <section aria-labelledby="p-rights">
+        <h2 id="p-rights">8. Your Rights</h2>
+        <!-- Access, rectification, erasure, portability, objection, restriction -->
+      </section>
+      <section aria-labelledby="p-security">
+        <h2 id="p-security">9. Security</h2>
+        <!-- Technical/organizational measures (high level) -->
+      </section>
+      <section aria-labelledby="p-contact">
+        <h2 id="p-contact">10. Contact</h2>
+        <!-- Contact email/address placeholder -->
+      </section>
+      <section aria-labelledby="p-changes">
+        <h2 id="p-changes">11. Changes to this Policy</h2>
+        <!-- Versioning / effective date placeholder -->
+      </section>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>© <span id="year"></span> RESCUE Project • <a href="index.html">Back to site</a> • <a href="terms.html">Terms</a></div>
+    </div>
+  </footer>
+
+  <!-- Cookie banner (optional) -->
+  <!-- <script defer src="cookie-consent.js"></script> -->
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
