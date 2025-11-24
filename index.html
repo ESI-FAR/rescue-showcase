@@ -220,6 +220,54 @@
       margin: 0 auto;
     }
 
+   .partner {
+  position: relative;
+  overflow: hidden;
+
+  /* darker, more opaque base so it stands out from page bg */
+  background: radial-gradient(circle at 10% 0%, #111827 0, #020617 70%);
+  border-radius: var(--radius);
+  border: 1px solid rgba(148, 163, 184, 0.40);      /* slightly brighter border */
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7);       /* stronger drop shadow */
+}
+
+/* soft logo-colored glow, blended on top of darker base */
+.partner::before {
+  content: "";
+  position: absolute;
+  inset: -25%;
+  background:
+    radial-gradient(
+      circle at 20% 0%,
+      color-mix(in srgb, var(--logo-color, #2bb0ed) 55%, #ffffff 15%) 0,
+      transparent 60%
+    ),
+    radial-gradient(
+      circle at 80% 100%,
+      color-mix(in srgb, var(--logo-color, #2bb0ed) 75%, #ffffff 10%) 0,
+      transparent 65%
+    );
+  filter: blur(22px);
+  opacity: 0.8;
+  mix-blend-mode: screen;  /* brightens the center without darkening edges */
+  z-index: 0;
+}
+
+/* keep content above glow */
+.partner > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* logo sizing (if not already) */
+.partner img {
+  max-width: 100%;
+  max-height: 60px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
  
  </style>
 </head>
@@ -357,18 +405,16 @@
   <section id="partners" class="wrap">
   <h2 class="section-title">Project Partners</h2>
 
-  <div class="partner-grid">
-    <!-- Row 1 (4 logos) -->
-    <div class="partner"><img src="img/partner1.png" alt="Partner 1"></div>
-    <div class="partner"><img src="img/partner2.png" alt="Partner 2"></div>
-    <div class="partner"><img src="img/partner3.png" alt="Partner 3"></div>
-    <div class="partner"><img src="img/partner4.png" alt="Partner 4"></div>
+  <div class="partner-grid" aria-label="Partner logos">
+  <div class="partner partner--1"><img src="img/partners_logo/TU-delft.png" alt="Partner 1"></div>
+  <div class="partner partner--2"><img src="img/partners_logo/cwi-logo.png" alt="Partner 2"></div>
+  <div class="partner partner--3"><img src="img/partners_logo/Logo_of_TenneT.png" alt="Partner 3"></div>
+  <div class="partner partner--4"><img src="img/partners_logo/DNV_logo_RGB_tcm8-197625.webp" alt="Partner 4"></div>
+  <div class="partner partner--5"><img src="img/partners_logo/ENCS-logo-dark.svg" alt="Partner 5"></div>
+  <div class="partner partner--6"><img src="img/partners_logo/netherlands-escience-center-logo-RGB-1024x282.png" alt="Partner 6"></div>
+  <div class="partner partner--7"><img src="img/partners_logo/Siemens-Logo.png" alt="Partner 7"></div>
+</div>
 
-    <!-- Row 2 (3 centered logos) -->
-    <div class="partner"><img src="img/partner5.png" alt="Partner 5"></div>
-    <div class="partner"><img src="img/partner6.png" alt="Partner 6"></div>
-    <div class="partner"><img src="img/partner7.png" alt="Partner 7"></div>
-  </div>
 </section>
 
 
@@ -527,5 +573,74 @@
       })();
     })();
   </script>
+
+  <script>
+  (function () {
+    const partners = document.querySelectorAll('.partner img');
+    if (!partners.length) return;
+
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+
+    partners.forEach(img => {
+      // If the image is already loaded, process it; otherwise wait for load
+      if (img.complete && img.naturalWidth > 0) {
+        setColorFromImage(img);
+      } else {
+        img.addEventListener('load', () => setColorFromImage(img), { once: true });
+      }
+    });
+
+    function setColorFromImage(img) {
+      try {
+        const w = img.naturalWidth;
+        const h = img.naturalHeight;
+        if (!w || !h) return;
+
+        const sampleSize = 32; // downscale for speed
+        canvas.width = sampleSize;
+        canvas.height = sampleSize;
+
+        ctx.clearRect(0, 0, sampleSize, sampleSize);
+        ctx.drawImage(img, 0, 0, sampleSize, sampleSize);
+
+        const data = ctx.getImageData(0, 0, sampleSize, sampleSize).data;
+
+        let r = 0, g = 0, b = 0, count = 0;
+        for (let i = 0; i < data.length; i += 4) {
+          const alpha = data[i + 3];
+          if (alpha < 128) continue; // skip very transparent pixels
+
+          r += data[i];
+          g += data[i + 1];
+          b += data[i + 2];
+          count++;
+        }
+        if (!count) return;
+
+                // Average color
+        r = Math.round(r / count);
+        g = Math.round(g / count);
+        b = Math.round(b / count);
+
+        // Push the color towards white to increase lightness/contrast
+        const lift = 0.5; // 0 = no change, 1 = pure white
+        const lighten = (c) => Math.round(c + (255 - c) * lift);
+
+        r = lighten(r);
+        g = lighten(g);
+        b = lighten(b);
+
+        const color = `rgb(${r}, ${g}, ${b})`;
+        img.closest('.partner')?.style.setProperty('--logo-color', color);
+
+      } catch (e) {
+        // Likely CORS issue if logos come from a different domain
+        console.warn('Could not sample logo color:', e);
+      }
+    }
+  })();
+</script>
+
 </body>
 </html>
