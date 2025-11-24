@@ -189,7 +189,39 @@
     .deliverable summary::after { content: "▸"; opacity: 0.7; margin-left: 8px; transition: transform 160ms ease; }
     .deliverable[open] summary::after, .deliverable details[open] > summary::after { transform: rotate(90deg); }
     .deliverable details > div { color: var(--muted); margin-top: 8px; }
-  </style>
+    /* Base: small screens – 2-column grid is fine */
+    .partner-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    /* Desktop: use flexbox so 4 + 3 are nicely centered */
+    @media (min-width: 860px) {
+      .partner-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;    /* center entire group in the section */
+        gap: 18px 32px;             /* vertical + horizontal spacing */
+      }
+
+      .partner {
+        flex: 0 1 22%;              /* ≈4 items per row on wide screens */
+        max-width: 220px;
+      }
+    }
+
+    /* Logo image styling (if not already there) */
+    .partner img {
+      max-width: 100%;
+      max-height: 60px;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto;
+    }
+
+ 
+ </style>
 </head>
 <body>
   <!-- Header / Navigation -->
@@ -323,18 +355,23 @@
 
   <!-- Partners -->
   <section id="partners" class="wrap">
-    <h2 class="section-title">Project Partners</h2>
-    <div class="partner-grid" aria-label="Partner logos">
-      <div class="partner">Partner Logo 1</div>
-      <div class="partner">Partner Logo 2</div>
-      <div class="partner">Partner Logo 3</div>
-      <div class="partner">Partner Logo 4</div>
-      <div class="partner">Partner Logo 5</div>
-      <div class="partner">Partner Logo 6</div>
-      <div class="partner">Partner Logo 7</div>
-      <div class="partner">Partner Logo 8</div>
-    </div>
-  </section>
+  <h2 class="section-title">Project Partners</h2>
+
+  <div class="partner-grid">
+    <!-- Row 1 (4 logos) -->
+    <div class="partner"><img src="img/partner1.png" alt="Partner 1"></div>
+    <div class="partner"><img src="img/partner2.png" alt="Partner 2"></div>
+    <div class="partner"><img src="img/partner3.png" alt="Partner 3"></div>
+    <div class="partner"><img src="img/partner4.png" alt="Partner 4"></div>
+
+    <!-- Row 2 (3 centered logos) -->
+    <div class="partner"><img src="img/partner5.png" alt="Partner 5"></div>
+    <div class="partner"><img src="img/partner6.png" alt="Partner 6"></div>
+    <div class="partner"><img src="img/partner7.png" alt="Partner 7"></div>
+  </div>
+</section>
+
+
 
   <!-- Team -->
   <section id="team" class="wrap">
