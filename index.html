@@ -8,7 +8,7 @@
 
   <!-- Open Graph / Social -->
   <meta property="og:title" content="RESCUE Project — Showcase" />
-  <meta property="og:description" content="Explore the RESCUE project's goals, partners, team, and deliverables." />
+  <meta property="og:description" content="Explore the RESCUE project's goals, partners, team, and publications." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://your-domain.example/" />
   <meta property="og:image" content="https://your-domain.example/social-card.png" />
@@ -303,9 +303,9 @@
       object-fit: cover;
     }
 
-    /* Deliverables */
-    .deliverables { display:grid; grid-template-columns: 1fr; gap: 12px; }
-    .deliverable {
+    /* publications */
+    .publications { display:grid; grid-template-columns: 1fr; gap: 12px; }
+    .publication {
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 12px;
@@ -456,25 +456,143 @@
     .nav .nav-cta:hover::before { transform: translateX(0%) translateY(0%) rotate(0deg); }
     .nav .nav-cta > * { position: relative; z-index: 1; }
 
-    /* Expandable deliverables */
-    .deliverable details { flex: 1; }
-    .deliverable summary {
+    /* Expandable publications */
+    .publication details { flex: 1; }
+    .publication summary {
       list-style: none;
       cursor: pointer;
       display: flex;
       align-items: center;
       gap: 10px;
     }
-    .deliverable summary::-webkit-details-marker { display: none; }
-    .deliverable summary::after {
+    .publication summary::-webkit-details-marker { display: none; }
+    .publication summary::after {
       content: "▸";
       opacity: 0.7;
       margin-left: 8px;
       transition: transform 160ms ease;
     }
-    .deliverable[open] summary::after,
-    .deliverable details[open] > summary::after { transform: rotate(90deg); }
-    .deliverable details > div { color: var(--muted); margin-top: 8px; }
+    .publication[open] summary::after,
+    .publication details[open] > summary::after { transform: rotate(90deg); }
+    .publication details > div { color: var(--muted); margin-top: 8px; }
+
+
+    /* Publications dropdown */
+      .publication-card {
+        margin-top: 16px;
+      }
+
+      .pub-summary {
+        cursor: pointer;
+      }
+
+      .pub-list {
+        list-style: none;
+        margin: 14px 0 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .pub-link {
+        padding: 8px 10px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: #111828;
+        color: var(--text);
+        font: inherit;
+        text-align: left;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+      }
+
+      .pub-link:hover {
+        background: #141c2e;
+      }
+
+      /* Modal */
+      .pub-modal {
+        position: fixed;
+        inset: 0;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 80;
+      }
+
+      .pub-modal.open {
+        display: flex;
+      }
+
+      .pub-modal-backdrop {
+        position: absolute;
+        inset: 0;
+        background: rgba(15, 23, 42, 0.75);
+      }
+
+      .pub-modal-dialog {
+        position: relative;
+        max-width: 720px;
+        width: min(94%, 720px);
+        max-height: 90vh;
+        overflow-y: auto;
+        background: var(--surface);
+        border-radius: var(--radius);
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow);
+        padding: 20px 22px 18px;
+        z-index: 1;
+      }
+
+      .pub-modal-close {
+        position: absolute;
+        top: 10px;
+        right: 14px;
+        border: none;
+        background: transparent;
+        color: var(--muted);
+        font-size: 22px;
+        line-height: 1;
+        cursor: pointer;
+      }
+
+      .pub-modal-title {
+        margin: 0 34px 10px 0;
+        font-size: 1.1rem;
+      }
+
+      .pub-modal-abstract {
+        color: var(--muted);
+        margin: 0 0 14px;
+      }
+
+      .pub-modal-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 14px;
+      }
+
+      .pub-modal-links a[hidden] {
+        display: none;
+      }
+
+      .pub-modal-ga {
+        margin-top: 8px;
+      }
+
+      .pub-modal-ga img {
+        width: 100%;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+      }
+
+
+
   </style>
 </head>
 <body>
@@ -499,7 +617,7 @@
         <li><a href="#sections">Highlights</a></li>
         <li><a href="#partners">Partners</a></li>
         <li><a href="#team">Team</a></li>
-        <li><a href="#deliverables">Deliverables</a></li>
+        <li><a href="#publications">Pubblications</a></li>
         <li><a href="#ack">Acknowledgements</a></li>
         <li><a class="nav-cta" href="cosimplat_login.html"><span>CoSimPlat</span></a></li>
         <li><a class="nav-cta" href="replay.html"><span>REPlay</span></a></li>
@@ -516,7 +634,7 @@
       </p>
       <div class="cta">
         <a class="btn btn-primary" href="#sections"><span>Explore the highlights</span></a>
-        <a class="btn" href="#deliverables"><span>View deliverables</span></a>
+        <a class="btn" href="#publications"><span>View publications</span></a>
       </div>
     </div>
     <div class="card">
@@ -658,32 +776,35 @@
     </div>
   </section>
 
-  <!-- Deliverables -->
-  <section id="deliverables" class="wrap">
-    <h2 class="section-title">Deliverables</h2>
-    <div class="deliverables">
-      <div class="deliverable">
-        <details>
-          <summary><strong>D1.1 — Project Charter</strong></summary>
-          <div>Short description placeholder. Expand this area with scope, lead partner, and publication date.</div>
-        </details>
-        <a class="btn" href="#"><span>Open</span></a>
+  <!-- publications -->
+  <section id="publications" class="wrap">
+    <h2 class="section-title">Publications</h2>
+
+        <div id="publications-container"></div>
+
+  </section>
+
+  <!-- Publication modal -->
+  <div class="pub-modal" id="pub-modal" aria-hidden="true">
+    <div class="pub-modal-backdrop" data-modal-close></div>
+
+    <div class="pub-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="pub-modal-title">
+      <button type="button" class="pub-modal-close" data-modal-close aria-label="Close">×</button>
+
+      <h3 class="pub-modal-title" id="pub-modal-title"></h3>
+      <p class="pub-modal-abstract" id="pub-modal-abstract"></p>
+
+      <div class="pub-modal-links">
+        <a id="pub-modal-repo" href="#" target="_blank" rel="noopener noreferrer" hidden>Repository</a>
+        <a id="pub-modal-source" href="#" target="_blank" rel="noopener noreferrer" hidden>Source</a>
       </div>
-      <div class="deliverable">
-        <details>
-          <summary><strong>D2.2 — Data Management Plan</strong></summary>
-          <div>Short description placeholder. Outline data lifecycle, FAIR principles, and repository links.</div>
-        </details>
-        <a class="btn" href="#"><span>Open</span></a>
-      </div>
-      <div class="deliverable">
-        <details>
-          <summary><strong>D3.1 — Methodology Overview</strong> <span class="badge">Coming soon</span></summary>
-          <div>Short description placeholder. Expected release timeline and contact for feedback.</div>
-        </details>
+
+      <div class="pub-modal-ga" id="pub-modal-ga" hidden>
+        <img id="pub-modal-ga-img" src="" alt="Graphical abstract">
       </div>
     </div>
-  </section>
+  </div>
+
 
   <!-- Acknowledgements -->
   <section id="ack" class="wrap">
@@ -794,5 +915,185 @@
       })();
     })();
   </script>
+
+  <script>
+  (function () {
+    const modal = document.getElementById('pub-modal');
+    if (!modal) return;
+
+    const titleEl = document.getElementById('pub-modal-title');
+    const absEl = document.getElementById('pub-modal-abstract');
+    const repoEl = document.getElementById('pub-modal-repo');
+    const sourceEl = document.getElementById('pub-modal-source');
+    const gaWrapper = document.getElementById('pub-modal-ga');
+    const gaImg = document.getElementById('pub-modal-ga-img');
+
+    function closeModal() {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+    }
+
+    function openModal() {
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+    }
+
+    modal.querySelectorAll('[data-modal-close]').forEach(el => {
+      el.addEventListener('click', closeModal);
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('open')) {
+        closeModal();
+      }
+    });
+
+    function parsePublicationText(text) {
+      const lines = text.split(/\r?\n/);
+      const data = { title: '', abstract: '', repo: '', source: '' };
+
+      for (const raw of lines) {
+        const line = raw.trim();
+        if (!line) continue;
+        if (line.startsWith('Title:')) {
+          data.title = line.slice(6).trim();
+        } else if (line.startsWith('Abstract:')) {
+          data.abstract = line.slice(9).trim();
+        } else if (line.startsWith('Repo:')) {
+          data.repo = line.slice(5).trim();
+        } else if (line.startsWith('Source:')) {
+          data.source = line.slice(7).trim();
+        }
+      }
+      return data;
+    }
+
+    async function handlePubClick(btn) {
+      const wpFolder = btn.dataset.wpFolder;
+      const fileName = btn.dataset.file;
+      const gaName = btn.dataset.ga;
+
+      const txtUrl = `publications/${wpFolder}/${fileName}`;
+      let parsed = { title: btn.textContent.trim(), abstract: '', repo: '', source: '' };
+
+      try {
+        const res = await fetch(txtUrl);
+        if (res.ok) {
+          const txt = await res.text();
+          parsed = Object.assign(parsed, parsePublicationText(txt));
+        }
+      } catch (e) {
+        // fail silently; modal will show whatever we have
+      }
+
+      titleEl.textContent = parsed.title || btn.textContent.trim();
+      absEl.textContent = parsed.abstract || 'Abstract not available.';
+
+      if (parsed.repo) {
+        repoEl.href = parsed.repo;
+        repoEl.hidden = false;
+      } else {
+        repoEl.hidden = true;
+      }
+
+      if (parsed.source) {
+        sourceEl.href = parsed.source;
+        sourceEl.hidden = false;
+      } else {
+        sourceEl.hidden = true;
+      }
+
+      if (gaName) {
+        const gaUrl = `publications/${wpFolder}/${gaName}`;
+        gaImg.src = gaUrl;
+        gaImg.alt = `Graphical abstract for ${parsed.title || 'publication'}`;
+        gaWrapper.hidden = false;
+
+        gaImg.onerror = function () {
+          gaWrapper.hidden = true;
+        };
+      } else {
+        gaWrapper.hidden = true;
+      }
+
+      openModal();
+    }
+
+    // 🔑 Event delegation so dynamically-created .pub-link buttons work
+    document.addEventListener('click', (e) => {
+      const btn = e.target.closest('.pub-link');
+      if (btn) {
+        handlePubClick(btn);
+      }
+    });
+  })();
+</script>
+
+
+<script>
+  async function buildPublications() {
+    const container = document.getElementById('publications-container');
+    if (!container) return;
+
+    try {
+      const res = await fetch('publications/publications.json');
+      if (!res.ok) throw new Error('Cannot load publications.json');
+      const data = await res.json();
+
+      (data.workPackages || []).forEach(wp => {
+        // Card wrapper
+        const card = document.createElement('div');
+        card.className = 'card publication-card';
+
+        // <details>
+        const details = document.createElement('details');
+        details.className = 'pub-details';
+
+        // <summary>
+        const summary = document.createElement('summary');
+        summary.className = 'pub-summary';
+        const strong = document.createElement('strong');
+        strong.textContent = wp.title || wp.id || 'Work Package';
+        summary.appendChild(strong);
+        details.appendChild(summary);
+
+        // <ul> list
+        const ul = document.createElement('ul');
+        ul.className = 'pub-list';
+
+        (wp.publications || []).forEach(pub => {
+          const li = document.createElement('li');
+
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'pub-link';
+          btn.textContent = pub.label || pub.file || 'Publication';
+
+          // data attributes used by the modal logic
+          btn.dataset.wpFolder = wp.folder;
+          btn.dataset.file = pub.file;
+          if (pub.ga) {
+            btn.dataset.ga = pub.ga;
+          }
+
+          li.appendChild(btn);
+          ul.appendChild(li);
+        });
+
+        details.appendChild(ul);
+        card.appendChild(details);
+        container.appendChild(card);
+      });
+    } catch (err) {
+      console.error(err);
+      container.textContent = 'Unable to load publications at the moment.';
+    }
+  }
+
+  // build publications on load
+  document.addEventListener('DOMContentLoaded', buildPublications);
+</script>
+
+
 </body>
 </html>

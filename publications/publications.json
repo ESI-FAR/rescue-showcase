@@ -1,0 +1,33 @@
+{
+  "workPackages": [
+    {
+      "id": "WP3",
+      "title": "WP3 — Incident Response",
+      "folder": "WP3 - Incident Response",
+      "publications": [
+        {
+          "file": "pub_1.txt",
+          "ga": "pub_1_ga.svg",
+          "label": "Game-Theoretical Modeling of Sequential Topology Attacks in Radially Operated Distribution Networks"
+        },
+        {
+          "file": "pub_2.txt",
+          "ga": "pub_2_ga.png",
+          "label": "Full title of publication 2"
+        }
+      ]
+    },
+    {
+      "id": "WP2",
+      "title": "WP2 — Something",
+      "folder": "WP2 - Something",
+      "publications": [
+        {
+          "file": "pub_a.txt",
+          "ga": "pub_a_ga.png",
+          "label": "Some WP2 publication title"
+        }
+      ]
+    }
+  ]
+}
