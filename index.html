@@ -662,6 +662,144 @@
       }
 
 
+     /* TEAM */
+      .team-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0,1fr));
+        gap: 18px;
+      }
+
+      .member-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        position: relative;
+      }
+
+      .member-card {
+        position: relative;
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 14px;
+        box-shadow: 0 12px 30px rgba(0,0,0,0.55);
+        transition:
+          transform 160ms ease,
+          box-shadow 160ms ease,
+          border-color 160ms ease,
+          background 160ms ease;
+      }
+
+      .member-top {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+      }
+
+      .avatar {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        background: #0d2136;
+        border: 2px solid #1f2f48;
+        object-fit: cover;
+        flex-shrink: 0;
+      }
+
+      .member-main {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+
+      .member-name {
+        font-weight: 600;
+      }
+
+      .member-role {
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      .member-links {
+        display: flex;
+        gap: 8px;
+        margin-top: 6px;
+      }
+
+      .icon-link {
+        width: 26px;
+        height: 26px;
+        border-radius: 999px;
+        display: grid;
+        place-items: center;
+        background: #111828;
+        border: 1px solid var(--border);
+        color: var(--muted);
+        text-decoration: none;
+        transition:
+          background 140ms ease,
+          border-color 140ms ease,
+          color 140ms ease,
+          transform 120ms ease;
+      }
+
+      .icon-link svg {
+        width: 14px;
+        height: 14px;
+        fill: currentColor;
+      }
+
+      .icon-link:hover {
+        background: #0b1728;
+        border-color: var(--brand-strong);
+        color: var(--brand-strong);
+        transform: translateY(-1px);
+      }
+
+      /* Extra info BELOW the card */
+      .member-extra {
+        margin-top: 0;
+        padding: 0 4px;
+        color: var(--muted);
+        font-size: 0.9rem;
+        line-height: 1.4;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transform: translateY(-6px);
+        transition:
+          max-height 220ms ease,
+          opacity 180ms ease,
+          transform 180ms ease,
+          margin-top 180ms ease;
+      }
+
+      /* Hover / focus expansion only for that member */
+      .member-wrapper:hover .member-card,
+      .member-wrapper:focus-within .member-card {
+        transform: translateY(-2px) scale(1.01);
+        border-color: var(--brand-strong);
+        background: radial-gradient(circle at 0 0, rgba(43,176,237,0.14), transparent 60%), var(--card);
+        box-shadow: 0 20px 45px rgba(0,0,0,0.8);
+      }
+
+      .member-wrapper:hover .member-extra,
+      .member-wrapper:focus-within .member-extra {
+        max-height: 220px; /* adjust if you add more text */
+        opacity: 1;
+        transform: translateY(0);
+        margin-top: 6px;
+      }
+
+      /* Desktop: 4 columns like before */
+      @media (min-width: 860px) {
+        .team-grid {
+          grid-template-columns: repeat(4, minmax(0,1fr));
+        }
+      }
+
+
 
 
 
@@ -855,41 +993,141 @@
     </div>
   </section>
 
-  <!-- Team -->
+    <!-- Team -->
   <section id="team" class="wrap">
     <h2 class="section-title">👥 Team</h2>
 
     <div class="team-grid">
-      <div class="member">
-        <img class="avatar" src="https://placehold.co/112x112" alt="Member name" />
-        <div>
-          <strong>Member Name</strong>
-          <div style="color:var(--muted)">Role / Institution</div>
+      <!-- Member 1 -->
+      <article class="member-wrapper">
+        <div class="member-card">
+          <div class="member-top">
+            <img class="avatar" src="img/team/_MG_7512-Ioannis Semertzis.jpg" alt="Ioannis Semertzis" />
+            <div class="member-main">
+              <strong class="member-name">Ioannis Semertzis</strong>
+              <div class="member-role">Role / Institution</div>
+              <div class="member-links">
+                <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"
+                  class="icon-link" aria-label="LinkedIn profile">
+                  <!-- LinkedIn icon -->
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M4.98 3.5C4.98 4.88 3.9 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.32 8.16h4.36V24H.32zM8.2 8.16h4.18v2.16h.06c.58-1.1 2-2.26 4.12-2.26 4.4 0 5.21 2.9 5.21 6.68V24h-4.36v-7.6c0-1.82-.03-4.16-2.54-4.16-2.54 0-2.93 1.98-2.93 4.02V24H8.2z" />
+                  </svg>
+                </a>
+                <a href="mailto:ioannis@example.com" class="icon-link" aria-label="Email">
+                  <!-- Email icon -->
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm0 2v.2l8 5 8-5V6H4zm16 2.9-7.6 4.75a2 2 0 0 1-2.1 0L4 8.9V18h16V8.9z" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="member">
-        <img class="avatar" src="https://placehold.co/112x112" alt="Member name" />
-        <div>
-          <strong>Member Name</strong>
-          <div style="color:var(--muted)">Role / Institution</div>
+        <div class="member-extra">
+          <p>
+            Short bio or responsibilities here. Focus on RESCUE-related role, e.g.
+            incident response, CRoF, or CPS resilience.
+          </p>
         </div>
-      </div>
-      <div class="member">
-        <img class="avatar" src="https://placehold.co/112x112" alt="Member name" />
-        <div>
-          <strong>Member Name</strong>
-          <div style="color:var(--muted)">Role / Institution</div>
+      </article>
+
+      <!-- Member 2 -->
+      <article class="member-wrapper">
+        <div class="member-card">
+          <div class="member-top">
+            <img class="avatar" src="img/team/sho_phtoto_CWI.JPG" alt="Member name" />
+            <div class="member-main">
+              <strong class="member-name">Member Name</strong>
+              <div class="member-role">Role / Institution</div>
+              <div class="member-links">
+                <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"
+                  class="icon-link" aria-label="LinkedIn profile">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M4.98 3.5C4.98 4.88 3.9 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.32 8.16h4.36V24H.32zM8.2 8.16h4.18v2.16h.06c.58-1.1 2-2.26 4.12-2.26 4.4 0 5.21 2.9 5.21 6.68V24h-4.36v-7.6c0-1.82-.03-4.16-2.54-4.16-2.54 0-2.93 1.98-2.93 4.02V24H8.2z" />
+                  </svg>
+                </a>
+                <a href="mailto:someone@example.com" class="icon-link" aria-label="Email">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm0 2v.2l8 5 8-5V6H4zm16 2.9-7.6 4.75a2 2 0 0 1-2.1 0L4 8.9V18h16V8.9z" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="member">
-        <img class="avatar" src="https://placehold.co/112x112" alt="Member name" />
-        <div>
-          <strong>Member Name</strong>
-          <div style="color:var(--muted)">Role / Institution</div>
+        <div class="member-extra">
+          <p>
+            Short description of expertise, tasks in RESCUE, or research interests.
+          </p>
         </div>
-      </div>
+      </article>
+
+      <!-- Member 3 -->
+      <article class="member-wrapper">
+        <div class="member-card">
+          <div class="member-top">
+            <img class="avatar" src="https://placehold.co/112x112" alt="Member name" />
+            <div class="member-main">
+              <strong class="member-name">Member Name</strong>
+              <div class="member-role">Role / Institution</div>
+              <div class="member-links">
+                <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"
+                  class="icon-link" aria-label="LinkedIn profile">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M4.98 3.5C4.98 4.88 3.9 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.32 8.16h4.36V24H.32zM8.2 8.16h4.18v2.16h.06c.58-1.1 2-2.26 4.12-2.26 4.4 0 5.21 2.9 5.21 6.68V24h-4.36v-7.6c0-1.82-.03-4.16-2.54-4.16-2.54 0-2.93 1.98-2.93 4.02V24H8.2z" />
+                  </svg>
+                </a>
+                <a href="mailto:someone@example.com" class="icon-link" aria-label="Email">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm0 2v.2l8 5 8-5V6H4zm16 2.9-7.6 4.75a2 2 0 0 1-2.1 0L4 8.9V18h16V8.9z" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="member-extra">
+          <p>
+            Optional short text about research focus, work package, or contributions.
+          </p>
+        </div>
+      </article>
+
+      <!-- Member 4 -->
+      <article class="member-wrapper">
+        <div class="member-card">
+          <div class="member-top">
+            <img class="avatar" src="https://placehold.co/112x112" alt="Member name" />
+            <div class="member-main">
+              <strong class="member-name">Member Name</strong>
+              <div class="member-role">Role / Institution</div>
+              <div class="member-links">
+                <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"
+                  class="icon-link" aria-label="LinkedIn profile">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M4.98 3.5C4.98 4.88 3.9 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.32 8.16h4.36V24H.32zM8.2 8.16h4.18v2.16h.06c.58-1.1 2-2.26 4.12-2.26 4.4 0 5.21 2.9 5.21 6.68V24h-4.36v-7.6c0-1.82-.03-4.16-2.54-4.16-2.54 0-2.93 1.98-2.93 4.02V24H8.2z" />
+                  </svg>
+                </a>
+                <a href="mailto:someone@example.com" class="icon-link" aria-label="Email">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm0 2v.2l8 5 8-5V6H4zm16 2.9-7.6 4.75a2 2 0 0 1-2.1 0L4 8.9V18h16V8.9z" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="member-extra">
+          <p>
+            Another short description; you can keep it one or two lines for a tidy hover state.
+          </p>
+        </div>
+      </article>
     </div>
   </section>
+
+
 
   <!-- publications -->
   <section id="publications" class="wrap">
