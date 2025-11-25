@@ -1546,6 +1546,26 @@
   document.addEventListener('DOMContentLoaded', buildPublications);
 </script>
 
+<script>
+  (function () {
+    const grid = document.querySelector('.team-grid');
+    if (!grid) return;
+
+    // Collect children as an array
+    const items = Array.from(grid.children);
+    if (items.length < 2) return;
+
+    // Simple Fisher–Yates shuffle
+    for (let i = items.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [items[i], items[j]] = [items[j], items[i]];
+    }
+
+    // Append in new order
+    items.forEach(item => grid.appendChild(item));
+  })();
+</script>
+
 
 </body>
 </html>
