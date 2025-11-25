@@ -591,6 +591,12 @@
         border: 1px solid var(--border);
       }
 
+      .pub-modal-authors {
+        margin: 0 0 6px;
+        font-weight: 500;
+      }
+
+
 
 
   </style>
@@ -792,12 +798,16 @@
       <button type="button" class="pub-modal-close" data-modal-close aria-label="Close">×</button>
 
       <h3 class="pub-modal-title" id="pub-modal-title"></h3>
+      <p class="pub-modal-authors" id="pub-modal-authors"></p>
       <p class="pub-modal-abstract" id="pub-modal-abstract"></p>
 
       <div class="pub-modal-links">
         <a id="pub-modal-repo" href="#" target="_blank" rel="noopener noreferrer" hidden>Repository</a>
         <a id="pub-modal-source" href="#" target="_blank" rel="noopener noreferrer" hidden>Source</a>
+        <a id="pub-modal-doi" href="#" target="_blank" rel="noopener noreferrer" hidden>DOI</a>        <!-- NEW -->
+        <a id="pub-modal-scholar" href="#" target="_blank" rel="noopener noreferrer" hidden>Scholar</a><!-- NEW -->
       </div>
+
 
       <div class="pub-modal-ga" id="pub-modal-ga" hidden>
         <img id="pub-modal-ga-img" src="" alt="Graphical abstract">
@@ -921,12 +931,15 @@
     const modal = document.getElementById('pub-modal');
     if (!modal) return;
 
-    const titleEl = document.getElementById('pub-modal-title');
-    const absEl = document.getElementById('pub-modal-abstract');
-    const repoEl = document.getElementById('pub-modal-repo');
-    const sourceEl = document.getElementById('pub-modal-source');
+    const titleEl   = document.getElementById('pub-modal-title');
+    const authorsEl = document.getElementById('pub-modal-authors');   // NEW
+    const absEl     = document.getElementById('pub-modal-abstract');
+    const repoEl    = document.getElementById('pub-modal-repo');
+    const sourceEl  = document.getElementById('pub-modal-source');
+    const doiEl     = document.getElementById('pub-modal-doi');       // NEW
+    const scholarEl = document.getElementById('pub-modal-scholar');   // NEW
     const gaWrapper = document.getElementById('pub-modal-ga');
-    const gaImg = document.getElementById('pub-modal-ga-img');
+    const gaImg     = document.getElementById('pub-modal-ga-img');
 
     function closeModal() {
       modal.classList.remove('open');
@@ -950,11 +963,20 @@
 
     function parsePublicationText(text) {
       const lines = text.split(/\r?\n/);
-      const data = { title: '', abstract: '', repo: '', source: '' };
+      const data = {
+        title: '',
+        abstract: '',
+        repo: '',
+        source: '',
+        authors: '',
+        doi: '',
+        doiUrl: ''
+      };
 
       for (const raw of lines) {
         const line = raw.trim();
         if (!line) continue;
+
         if (line.startsWith('Title:')) {
           data.title = line.slice(6).trim();
         } else if (line.startsWith('Abstract:')) {
@@ -963,6 +985,12 @@
           data.repo = line.slice(5).trim();
         } else if (line.startsWith('Source:')) {
           data.source = line.slice(7).trim();
+        } else if (line.startsWith('Authors:')) {
+          data.authors = line.slice(8).trim();
+        } else if (line.startsWith('DOI URL:')) {
+          data.doiUrl = line.slice(8).trim();
+        } else if (line.startsWith('DOI:')) {
+          data.doi = line.slice(4).trim();
         }
       }
       return data;
@@ -971,24 +999,66 @@
     async function handlePubClick(btn) {
       const wpFolder = btn.dataset.wpFolder;
       const fileName = btn.dataset.file;
-      const gaName = btn.dataset.ga;
+      const gaName   = btn.dataset.ga;
 
       const txtUrl = `publications/${wpFolder}/${fileName}`;
-      let parsed = { title: btn.textContent.trim(), abstract: '', repo: '', source: '' };
 
+      // Start with data from button / JSON
+      let parsed = {
+        title: btn.textContent.trim(),
+        abstract: '',
+        repo: btn.dataset.repo || '',
+        source: btn.dataset.source || '',
+        authors: btn.dataset.authors || '',
+        doi: btn.dataset.doi || '',
+        doiUrl: btn.dataset.doiUrl || '',
+        scholar: btn.dataset.scholar || ''
+      };
+
+      // Try to augment using the .txt file
+            // Try to augment using the .txt file
       try {
         const res = await fetch(txtUrl);
         if (res.ok) {
           const txt = await res.text();
-          parsed = Object.assign(parsed, parsePublicationText(txt));
+          const override = parsePublicationText(txt);
+
+          // Only override fields with non-empty values
+          for (const [key, value] of Object.entries(override)) {
+            if (typeof value === 'string') {
+              if (value.trim() !== '') {
+                parsed[key] = value.trim();
+              }
+            } else if (value) {
+              parsed[key] = value;
+            }
+          }
+
+          // Optional: see what we ended up with
+          // console.log('parsed', parsed);
         }
       } catch (e) {
-        // fail silently; modal will show whatever we have
+        // ignore; fallback to existing parsed
+        // console.error(e);
       }
 
+
+      // Title
       titleEl.textContent = parsed.title || btn.textContent.trim();
+
+      // Authors
+      if (parsed.authors) {
+        authorsEl.textContent = `Authors: ${parsed.authors}`;
+        authorsEl.hidden = false;
+      } else if (authorsEl) {
+        authorsEl.textContent = '';
+        authorsEl.hidden = true;
+      }
+
+      // Abstract
       absEl.textContent = parsed.abstract || 'Abstract not available.';
 
+      // Repo button
       if (parsed.repo) {
         repoEl.href = parsed.repo;
         repoEl.hidden = false;
@@ -996,6 +1066,7 @@
         repoEl.hidden = true;
       }
 
+      // Source button
       if (parsed.source) {
         sourceEl.href = parsed.source;
         sourceEl.hidden = false;
@@ -1003,6 +1074,25 @@
         sourceEl.hidden = true;
       }
 
+      // DOI button
+      const doiHref = parsed.doiUrl || (parsed.doi ? `https://doi.org/${encodeURIComponent(parsed.doi)}` : '');
+      if (doiHref) {
+        doiEl.href = doiHref;
+        doiEl.textContent = parsed.doi ? `DOI: ${parsed.doi}` : 'DOI';
+        doiEl.hidden = false;
+      } else {
+        doiEl.hidden = true;
+      }
+
+      // Scholar button
+      if (parsed.scholar) {
+        scholarEl.href = parsed.scholar;
+        scholarEl.hidden = false;
+      } else {
+        scholarEl.hidden = true;
+      }
+
+      // Graphical abstract
       if (gaName) {
         const gaUrl = `publications/${wpFolder}/${gaName}`;
         gaImg.src = gaUrl;
@@ -1019,7 +1109,7 @@
       openModal();
     }
 
-    // 🔑 Event delegation so dynamically-created .pub-link buttons work
+    // Event delegation so dynamically generated buttons work
     document.addEventListener('click', (e) => {
       const btn = e.target.closest('.pub-link');
       if (btn) {
@@ -1028,6 +1118,7 @@
     });
   })();
 </script>
+
 
 
 <script>
@@ -1062,23 +1153,31 @@
         ul.className = 'pub-list';
 
         (wp.publications || []).forEach(pub => {
-          const li = document.createElement('li');
+        const li = document.createElement('li');
 
-          const btn = document.createElement('button');
-          btn.type = 'button';
-          btn.className = 'pub-link';
-          btn.textContent = pub.label || pub.file || 'Publication';
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'pub-link';
+        btn.textContent = pub.label || pub.file || 'Publication';
 
-          // data attributes used by the modal logic
-          btn.dataset.wpFolder = wp.folder;
-          btn.dataset.file = pub.file;
-          if (pub.ga) {
-            btn.dataset.ga = pub.ga;
-          }
+        btn.dataset.wpFolder = wp.folder;
+        btn.dataset.file = pub.file;
+        if (pub.ga) {
+          btn.dataset.ga = pub.ga;
+        }
 
-          li.appendChild(btn);
-          ul.appendChild(li);
-        });
+        // NEW: extra metadata
+        if (pub.authors)  btn.dataset.authors  = pub.authors;
+        if (pub.doi)      btn.dataset.doi      = pub.doi;
+        if (pub.doiUrl)   btn.dataset.doiUrl   = pub.doiUrl;
+        if (pub.repo)     btn.dataset.repo     = pub.repo;
+        if (pub.source)   btn.dataset.source   = pub.source;
+        if (pub.scholar)  btn.dataset.scholar  = pub.scholar;
+
+        li.appendChild(btn);
+        ul.appendChild(li);
+      });
+
 
         details.appendChild(ul);
         card.appendChild(details);

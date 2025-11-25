@@ -8,24 +8,13 @@
         {
           "file": "pub_1.txt",
           "ga": "pub_1_ga.svg",
-          "label": "Game-Theoretical Modeling of Sequential Topology Attacks in Radially Operated Distribution Networks"
-        },
-        {
-          "file": "pub_2.txt",
-          "ga": "pub_2_ga.png",
-          "label": "Full title of publication 2"
-        }
-      ]
-    },
-    {
-      "id": "WP2",
-      "title": "WP2 — Something",
-      "folder": "WP2 - Something",
-      "publications": [
-        {
-          "file": "pub_a.txt",
-          "ga": "pub_a_ga.png",
-          "label": "Some WP2 publication title"
+          "label": "Game-Theoretical Modeling of Sequential Topology Attacks in Radially Operated Distribution Networks",
+          "authors": "A. Author, B. Author, C. Author",
+          "doi": "10.1234/abcd.2025.001",
+          "doiUrl": "https://doi.org/10.1234/abcd.2025.001",
+          "repo": "https://zenodo.org/record/1234567",
+          "source": "https://publisher.example.com/paper/123",
+          "scholar": "https://scholar.google.com/scholar?cluster=1234567890"
         }
       ]
     }
