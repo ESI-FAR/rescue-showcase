@@ -48,105 +48,6 @@ All logic is inside `<script>` tags at the bottom of `index.html`:
 
 ---
 
-## ✏️ Editing Content
-
-### 1. Hero Section
-
-In `index.html`, search for:
-
-```html
-<main id="top" class="hero" role="main">
-```
-
-Inside this block you can edit:
-- the main title (`<h1>`)
-- the short lead paragraph (`<p>`)
-- button labels / targets (`href="#sections"`, `href="#publications"`)
-
----
-
-### 2. Mission / About Section
-
-Search for:
-
-```html
-<section id="about" class="wrap">
-```
-
-This section contains three “mission blocks”.  
-You can edit the bullet points and text directly in the HTML.
-
----
-
-### 3. Highlight Sections & Carousels
-
-Each highlight section is tied to a Work Package (WP) through `data-wp-folder`:
-
-```html
-<section id="sections" class="feature" data-wp-folder="WP2">
-<section class="feature" data-wp-folder="WP4">
-<section class="feature" data-wp-folder="WP5">
-```
-
-In each section you can edit:
-
-```html
-<h3>Section One — Placeholder Title</h3>
-<p class="muted">Brief description placeholder...</p>
-```
-
-The **image carousel** inside the grey card is not static:  
-it automatically shows the *featured publications* for that WP (see “Publications” below).
-
----
-
-### 4. Partners
-
-Logos are defined in the **Partners** section:
-
-```html
-<section id="partners" class="wrap">
-  ...
-  <div class="partner-grid" aria-label="Partner logos">
-    <div class="partner" style="--glow:#00A6D6;">
-      <img src="img/partners_logo/TU-delft.png" alt="TU Delft">
-    </div>
-    ...
-  </div>
-</section>
-```
-
-To add a partner:
-
-1. Save their logo under `img/partners_logo/`.
-2. Add a new `.partner` `<div>` with an `<img>` and `alt="Partner Name"`.
-
----
-
-### 5. Team
-
-The team is defined under:
-
-```html
-<section id="team" class="wrap">
-  <div class="team-grid">
-    <article class="member-wrapper"> ... </article>
-    ...
-  </div>
-</section>
-```
-
-Each member card includes:
-- photo (`<img class="avatar" src="...">`)
-- name, institution
-- optional LinkedIn / email links
-- “extra” text that appears on hover
-
-To add a member, copy an existing `<article class="member-wrapper">...</article>` block and update the fields.
-
-> Note: a small script randomizes the order of team members on each page load.
-
----
 
 ## 📚 Publications System
 
@@ -156,7 +57,7 @@ Publications are controlled via **JSON + text files**, and automatically:
 - fill the **publication modal** (title, abstract, links, authors)
 - feed the **highlight carousels** (for selected / featured publications)
 
-### 5.1. `publications.json` structure
+### 1. `publications.json` structure
 
 `publications/publications.json` looks like this (simplified):
 
@@ -203,7 +104,7 @@ Each publication object:
   - `true` → used in the **highlight carousels** and in the **“Explore”** modal cycle for that section  
   - `false`/missing → still appears in the Publications list, but not in the highlight carousel
 
-### 5.2. The `.txt` metadata files
+### 2. The `.txt` metadata files
 
 For each publication, there is a text file like `publications/WP2/pub_21.txt` that can provide richer metadata. For example:
 
@@ -220,7 +121,7 @@ DOI URL: https://ieeexplore.ieee.org/document/10634523
 The script parses these lines and uses them to fill in the **modal content**.  
 Fields in the `.txt` file override or complement values coming from `publications.json`.
 
-### 5.3. Adding a new publication
+### 3. Adding a new publication
 
 1. **Add a `.txt` file** under the correct WP folder, for example:
 
