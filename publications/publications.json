@@ -1,20 +1,74 @@
 {
   "workPackages": [
     {
-      "id": "WP3",
-      "title": "WP3 — Incident Response",
-      "folder": "WP3 - Incident Response",
+      "id": "WP2",
+      "title": "Digital twin of integrated cyber-physical energy system",
+      "folder": "WP2",
       "publications": [
         {
-          "file": "pub_1.txt",
-          "ga": "pub_1_ga.svg",
-          "label": "Game-Theoretical Modeling of Sequential Topology Attacks in Radially Operated Distribution Networks",
-          "authors": "A. Author, B. Author, C. Author",
-          "doi": "10.1234/abcd.2025.001",
-          "doiUrl": "https://doi.org/10.1234/abcd.2025.001",
-          "repo": "https://zenodo.org/record/1234567",
-          "source": "https://publisher.example.com/paper/123",
-          "scholar": "https://scholar.google.com/scholar?cluster=1234567890"
+          "file": "pub_21.txt",
+          "ga": "pub_21_ga.svg",
+          "label": "Power System Stability Analysis From Cyber Attacks Perspective",
+          "authors": "Semertzis I, Ştefanov A, Presekal A, Kruimer B, Torres JL, Palensky P.",
+          "doi": "10.1109/ACCESS.2024.3443061",
+          "doiUrl": "https://ieeexplore.ieee.org/document/10634523",
+          "repo": "https://ieeexplore.ieee.org/document/10634523",
+          "source": "https://ieeexplore.ieee.org/document/10634523",
+          "scholar": "https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=Power+System+Stability+Analysis+From+Cyber+Attacks+Perspective&btnG="
+        }
+      ]
+    },
+    {
+      "id": "WP3",
+      "title": "Intrusion detection and prevention system",
+      "folder": "WP3",
+      "publications": [
+        {
+          "file": "pub_31.txt",
+          "ga": "pub_31_ga.svg",
+          "label": "Intrusion detection and prevention system",
+          "authors": "Author A, Author B., Author C.",
+          "doi": "10.1109/ACCESS.2024.xyz",
+          "doiUrl": "https://ieeexplore.ieee.org/document/xyz",
+          "repo": "https://ieeexplore.ieee.org/document/xyz",
+          "source": "https://ieeexplore.ieee.org/document/xyz",
+          "scholar": "https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=Power+System+Stability+Analysis+From+Cyber+Attacks+Perspective&btnG="
+        }
+      ]
+    },
+    {
+      "id": "W4",
+      "title": "Incident response strategies using security games",
+      "folder": "WP4",
+      "publications": [
+        {
+          "file": "pub_41.txt",
+          "ga": "pub_41_ga.svg",
+          "label": "Incident response strategies using security games",
+          "authors": "Author A, Author B., Author C.",
+          "doi": "10.1109/ACCESS.2024.xyz",
+          "doiUrl": "https://ieeexplore.ieee.org/document/xyz",
+          "repo": "https://ieeexplore.ieee.org/document/xyz",
+          "source": "https://ieeexplore.ieee.org/document/xyz",
+          "scholar": "https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=Power+System+Stability+Analysis+From+Cyber+Attacks+Perspective&btnG="
+        }
+      ]
+    },
+    {
+      "id": "W5",
+      "title": "Human factors in incident response",
+      "folder": "WP5",
+      "publications": [
+        {
+          "file": "pub_51.txt",
+          "ga": "pub_51_ga.svg",
+          "label": "Human factors in incident response",
+          "authors": "Author A, Author B., Author C.",
+          "doi": "10.1109/ACCESS.2024.xyz",
+          "doiUrl": "https://ieeexplore.ieee.org/document/xyz",
+          "repo": "https://ieeexplore.ieee.org/document/xyz",
+          "source": "https://ieeexplore.ieee.org/document/xyz",
+          "scholar": "https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=Power+System+Stability+Analysis+From+Cyber+Attacks+Perspective&btnG="
         }
       ]
     }
