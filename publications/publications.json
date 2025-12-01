@@ -15,6 +15,17 @@
           "repo": "https://ieeexplore.ieee.org/document/10634523",
           "source": "https://ieeexplore.ieee.org/document/10634523",
           "scholar": "https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=Power+System+Stability+Analysis+From+Cyber+Attacks+Perspective&btnG="
+        },
+        {
+          "file": "pub_22.txt",
+          "ga": "pub_22_ga.svg",
+          "label": "Another WP2 paper",
+          "authors": "Another A, Author B.",
+          "doi": "10.1234/example.2024.0001",
+          "doiUrl": "https://doi.org/10.1234/example.2024.0001",
+          "repo": "https://example.org/repo/wp2-paper-2",
+          "source": "https://example.org/source/wp2-paper-2",
+          "scholar": "https://scholar.google.com/scholar?q=Another+WP2+paper"
         }
       ]
     },

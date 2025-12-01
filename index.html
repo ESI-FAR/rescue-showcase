@@ -800,6 +800,83 @@
       }
 
 
+          /* Feature card image carousel */
+    .feature-card-carousel {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #0f2034, #1b2b44);
+      border: 1px solid var(--border);
+    }
+    .feature-card-slides {
+      position: relative;
+    }
+    .feature-card-slide {
+      display: none;
+      width: 100%;
+      aspect-ratio: 16/10;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+    .feature-card-slide.active {
+      display: block;
+    }
+    .feature-card-nav {
+      position: absolute;
+      bottom: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: inline-flex;
+      gap: 8px;
+      padding: 4px 6px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(6px);
+    }
+    .feature-card-btn {
+      border: 1px solid var(--border);
+      background: #020617;
+      color: var(--text);
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: 0.8rem;
+      cursor: pointer;
+    }
+    .feature-card-btn:hover {
+      background: #0b1728;
+    }
+
+    /* Publication modal prev/next navigation */
+    .pub-modal-nav {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .pub-modal-nav-btn {
+      flex: 1;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #111828;
+      color: var(--text);
+      font: inherit;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+    .pub-modal-nav-btn:hover {
+      background: #141c2e;
+    }
+    .pub-modal-nav-index {
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-align: center;
+      margin-top: 6px;
+    }
+
 
 
 
@@ -924,44 +1001,83 @@
 
 
   <!-- Feature sections -->
-  <section id="sections" class="feature">
+    <section id="sections" class="feature" data-wp-folder="WP2">
     <div class="wrap feature-grid">
       <div class="card">
-        <div class="img-placeholder">Card Visual Placeholder</div>
+        <div
+          class="feature-card-carousel"
+          data-feature-carousel
+          data-wp-folder="WP2">
+          <div class="img-placeholder">Card Visual Placeholder</div>
+        </div>
       </div>
       <div class="text">
         <h3>Section One — Placeholder Title</h3>
         <p class="muted">Brief description placeholder. Outline the challenge and how RESCUE addresses it.</p>
-        <div><a class="btn btn-primary" href="#"><span>Explore</span></a></div>
+        <div>
+          <button
+            type="button"
+            class="btn btn-primary feature-explore"
+            data-wp-folder="WP2">
+            <span>Explore</span>
+          </button>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="feature">
+
+    <section class="feature" data-wp-folder="WP4">
     <div class="wrap feature-grid">
       <div class="card">
-        <div class="img-placeholder">Card Visual Placeholder</div>
+        <div
+          class="feature-card-carousel"
+          data-feature-carousel
+          data-wp-folder="WP4">
+          <div class="img-placeholder">Card Visual Placeholder</div>
+        </div>
       </div>
       <div class="text">
         <h3>Section Two — Placeholder Title</h3>
         <p class="muted">Brief description placeholder. Methods, data sources, or experimental setup.</p>
-        <div><a class="btn btn-primary" href="#"><span>Explore</span></a></div>
+        <div>
+          <button
+            type="button"
+            class="btn btn-primary feature-explore"
+            data-wp-folder="WP4">
+            <span>Explore</span>
+          </button>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="feature">
+
+    <section class="feature" data-wp-folder="WP5">
     <div class="wrap feature-grid">
       <div class="card">
-        <div class="img-placeholder">Card Visual Placeholder</div>
+        <div
+          class="feature-card-carousel"
+          data-feature-carousel
+          data-wp-folder="WP5">
+          <div class="img-placeholder">Card Visual Placeholder</div>
+        </div>
       </div>
       <div class="text">
         <h3>Section Three — Placeholder Title</h3>
         <p class="muted">Brief description placeholder. Key findings, early results, or expected outcomes.</p>
-        <div><a class="btn btn-primary" href="#"><span>Explore</span></a></div>
+        <div>
+          <button
+            type="button"
+            class="btn btn-primary feature-explore"
+            data-wp-folder="WP5">
+            <span>Explore</span>
+          </button>
+        </div>
       </div>
     </div>
   </section>
+
 
   <!-- Partners -->
   <section id="partners" class="wrap">
@@ -1138,7 +1254,7 @@
   </section>
 
   <!-- Publication modal -->
-  <div class="pub-modal" id="pub-modal" aria-hidden="true">
+    <div class="pub-modal" id="pub-modal" aria-hidden="true">
     <div class="pub-modal-backdrop" data-modal-close></div>
 
     <div class="pub-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="pub-modal-title">
@@ -1151,16 +1267,27 @@
       <div class="pub-modal-links">
         <a id="pub-modal-repo" href="#" target="_blank" rel="noopener noreferrer" hidden>Repository</a>
         <a id="pub-modal-source" href="#" target="_blank" rel="noopener noreferrer" hidden>Source</a>
-        <a id="pub-modal-doi" href="#" target="_blank" rel="noopener noreferrer" hidden>DOI</a>        <!-- NEW -->
-        <a id="pub-modal-scholar" href="#" target="_blank" rel="noopener noreferrer" hidden>Scholar</a><!-- NEW -->
+        <a id="pub-modal-doi" href="#" target="_blank" rel="noopener noreferrer" hidden>DOI</a>
+        <a id="pub-modal-scholar" href="#" target="_blank" rel="noopener noreferrer" hidden>Scholar</a>
       </div>
-
 
       <div class="pub-modal-ga" id="pub-modal-ga" hidden>
         <img id="pub-modal-ga-img" src="" alt="Graphical abstract">
       </div>
+
+      <!-- NEW: prev/next inside modal -->
+      <div class="pub-modal-nav">
+        <button type="button" class="pub-modal-nav-btn" data-modal-prev>
+          &#x25C4; Previous
+        </button>
+        <button type="button" class="pub-modal-nav-btn" data-modal-next>
+          Next &#x25BA;
+        </button>
+      </div>
+      <div class="pub-modal-nav-index" id="pub-modal-index" aria-live="polite"></div>
     </div>
   </div>
+
 
 
   <!-- Acknowledgements -->
@@ -1220,79 +1347,86 @@
 
 
   <script>
-    // Update copyright year
-    document.getElementById('year').textContent = new Date().getFullYear();
+  // Update copyright year
+  document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Mobile menu toggle
-    const toggle = document.querySelector('.menu-toggle');
-    const menu = document.getElementById('primary-menu');
-    if (toggle && menu) {
-      toggle.addEventListener('click', () => {
-        const isOpen = menu.classList.toggle('open');
-        toggle.setAttribute('aria-expanded', String(isOpen));
-      });
-    }
-  </script>
+  // Mobile menu toggle
+  const toggle = document.querySelector('.menu-toggle');
+  const menu = document.getElementById('primary-menu');
+  if (toggle && menu) {
+    toggle.addEventListener('click', () => {
+      const isOpen = menu.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(isOpen));
+    });
+  }
+</script>
 
-  <script>
-    // RESCUE brand text animation
-    (function(){
-      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      const home = document.querySelector('.brand .home');
-      if (!home || prefersReduced) return;
-      const letters = Array.from(home.querySelectorAll('.glyph'));
-      if (!letters.length) return;
-      const wait = (ms) => new Promise(r => setTimeout(r, ms));
+<script>
+  // RESCUE brand text animation
+  (function(){
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const home = document.querySelector('.brand .home');
+    if (!home || prefersReduced) return;
+    const letters = Array.from(home.querySelectorAll('.glyph'));
+    if (!letters.length) return;
+    const wait = (ms) => new Promise(r => setTimeout(r, ms));
 
-      async function sweepWithAnomaly() {
-        const idx = [...letters.keys()].reverse(); // rtl order
-        const doAnomaly = Math.random() < 0.35;
-        const mid = Math.floor(idx.length/2) + (Math.random() < 0.5 ? -1 : 1);
-        const stopAt = doAnomaly ? Math.max(1, Math.min(idx.length-2, mid)) : -1;
-        const step = 55;
-        for (let k = 0; k < idx.length; k++) {
-          const i = idx[k];
-          letters[i].classList.add('lit');
-          if (doAnomaly && k === stopAt) {
-            const group = [i, idx[k-1], idx[k+1]].filter(v => v !== undefined);
-            group.forEach(j => letters[j].classList.add('alert','blink'));
-            await wait(900);
-            group.forEach(j => letters[j].classList.remove('blink'));
-          }
-          await wait(step);
+    async function sweepWithAnomaly() {
+      const idx = [...letters.keys()].reverse(); // rtl order
+      const doAnomaly = Math.random() < 0.35;
+      const mid = Math.floor(idx.length/2) + (Math.random() < 0.5 ? -1 : 1);
+      const stopAt = doAnomaly ? Math.max(1, Math.min(idx.length-2, mid)) : -1;
+      const step = 55;
+      for (let k = 0; k < idx.length; k++) {
+        const i = idx[k];
+        letters[i].classList.add('lit');
+        if (doAnomaly && k === stopAt) {
+          const group = [i, idx[k-1], idx[k+1]].filter(v => v !== undefined);
+          group.forEach(j => letters[j].classList.add('alert','blink'));
+          await wait(900);
+          group.forEach(j => letters[j].classList.remove('blink'));
         }
-        await wait(400);
-        const idx2 = [...letters.keys()];
-        for (let k = 0; k < idx2.length; k++) {
-          const i = idx2[k];
-          letters[i].classList.remove('lit','alert','blink');
-          await wait(60);
-        }
+        await wait(step);
       }
+      await wait(400);
+      const idx2 = [...letters.keys()];
+      for (let k = 0; k < idx2.length; k++) {
+        const i = idx2[k];
+        letters[i].classList.remove('lit','alert','blink');
+        await wait(60);
+      }
+    }
 
-      (async function cycle(){
-        while (true) {
-          await wait(2000 + Math.random()*5000);
-          await sweepWithAnomaly();
-        }
-      })();
+    (async function cycle(){
+      while (true) {
+        await wait(2000 + Math.random()*5000);
+        await sweepWithAnomaly();
+      }
     })();
-  </script>
+  })();
+</script>
 
-  <script>
+<script>
   (function () {
     const modal = document.getElementById('pub-modal');
     if (!modal) return;
 
     const titleEl   = document.getElementById('pub-modal-title');
-    const authorsEl = document.getElementById('pub-modal-authors');   // NEW
+    const authorsEl = document.getElementById('pub-modal-authors');
     const absEl     = document.getElementById('pub-modal-abstract');
     const repoEl    = document.getElementById('pub-modal-repo');
     const sourceEl  = document.getElementById('pub-modal-source');
-    const doiEl     = document.getElementById('pub-modal-doi');       // NEW
-    const scholarEl = document.getElementById('pub-modal-scholar');   // NEW
+    const doiEl     = document.getElementById('pub-modal-doi');
+    const scholarEl = document.getElementById('pub-modal-scholar');
     const gaWrapper = document.getElementById('pub-modal-ga');
     const gaImg     = document.getElementById('pub-modal-ga-img');
+
+    const indexEl   = document.getElementById('pub-modal-index');
+    const navPrev   = modal.querySelector('[data-modal-prev]');
+    const navNext   = modal.querySelector('[data-modal-next]');
+
+    let modalList = [];
+    let modalIndex = 0;
 
     function closeModal() {
       modal.classList.remove('open');
@@ -1349,7 +1483,12 @@
       return data;
     }
 
-    async function handlePubClick(btn) {
+    function updateModalIndex() {
+      if (!indexEl || !modalList.length) return;
+      indexEl.textContent = (modalIndex + 1) + ' / ' + modalList.length;
+    }
+
+    async function loadPublicationFromButton(btn) {
       const wpFolder = btn.dataset.wpFolder;
       const fileName = btn.dataset.file;
       const gaName   = btn.dataset.ga;
@@ -1369,7 +1508,6 @@
       };
 
       // Try to augment using the .txt file
-            // Try to augment using the .txt file
       try {
         const res = await fetch(txtUrl);
         if (res.ok) {
@@ -1386,15 +1524,10 @@
               parsed[key] = value;
             }
           }
-
-          // Optional: see what we ended up with
-          // console.log('parsed', parsed);
         }
       } catch (e) {
         // ignore; fallback to existing parsed
-        // console.error(e);
       }
-
 
       // Title
       titleEl.textContent = parsed.title || btn.textContent.trim();
@@ -1460,19 +1593,47 @@
       }
 
       openModal();
+      updateModalIndex();
+    }
+
+    function setModalListFromButton(btn) {
+      const folder = btn.dataset.wpFolder;
+      if (folder) {
+        modalList = Array.from(
+          document.querySelectorAll('.pub-link[data-wp-folder="' + folder + '"]')
+        );
+        modalIndex = Math.max(0, modalList.indexOf(btn));
+      } else {
+        modalList = [btn];
+        modalIndex = 0;
+      }
+      updateModalIndex();
+    }
+
+    if (navPrev && navNext) {
+      navPrev.addEventListener('click', () => {
+        if (!modalList.length) return;
+        modalIndex = (modalIndex - 1 + modalList.length) % modalList.length;
+        loadPublicationFromButton(modalList[modalIndex]);
+      });
+
+      navNext.addEventListener('click', () => {
+        if (!modalList.length) return;
+        modalIndex = (modalIndex + 1) % modalList.length;
+        loadPublicationFromButton(modalList[modalIndex]);
+      });
     }
 
     // Event delegation so dynamically generated buttons work
     document.addEventListener('click', (e) => {
       const btn = e.target.closest('.pub-link');
       if (btn) {
-        handlePubClick(btn);
+        setModalListFromButton(btn);
+        loadPublicationFromButton(btn);
       }
     });
   })();
 </script>
-
-
 
 <script>
   async function buildPublications() {
@@ -1506,36 +1667,40 @@
         ul.className = 'pub-list';
 
         (wp.publications || []).forEach(pub => {
-        const li = document.createElement('li');
+          const li = document.createElement('li');
 
-        const btn = document.createElement('button');
-        btn.type = 'button';
-        btn.className = 'pub-link';
-        btn.textContent = pub.label || pub.file || 'Publication';
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'pub-link';
+          btn.textContent = pub.label || pub.file || 'Publication';
 
-        btn.dataset.wpFolder = wp.folder;
-        btn.dataset.file = pub.file;
-        if (pub.ga) {
-          btn.dataset.ga = pub.ga;
-        }
+          btn.dataset.wpFolder = wp.folder;
+          btn.dataset.file = pub.file;
+          if (pub.ga) {
+            btn.dataset.ga = pub.ga;
+          }
 
-        // NEW: extra metadata
-        if (pub.authors)  btn.dataset.authors  = pub.authors;
-        if (pub.doi)      btn.dataset.doi      = pub.doi;
-        if (pub.doiUrl)   btn.dataset.doiUrl   = pub.doiUrl;
-        if (pub.repo)     btn.dataset.repo     = pub.repo;
-        if (pub.source)   btn.dataset.source   = pub.source;
-        if (pub.scholar)  btn.dataset.scholar  = pub.scholar;
+          // extra metadata
+          if (pub.authors)  btn.dataset.authors  = pub.authors;
+          if (pub.doi)      btn.dataset.doi      = pub.doi;
+          if (pub.doiUrl)   btn.dataset.doiUrl   = pub.doiUrl;
+          if (pub.repo)     btn.dataset.repo     = pub.repo;
+          if (pub.source)   btn.dataset.source   = pub.source;
+          if (pub.scholar)  btn.dataset.scholar  = pub.scholar;
 
-        li.appendChild(btn);
-        ul.appendChild(li);
-      });
-
+          li.appendChild(btn);
+          ul.appendChild(li);
+        });
 
         details.appendChild(ul);
         card.appendChild(details);
         container.appendChild(card);
       });
+
+      // 🔑 now that publications (and .pub-link elements) exist,
+      // build the feature card carousels
+      initFeatureCarousels();
+
     } catch (err) {
       console.error(err);
       container.textContent = 'Unable to load publications at the moment.';
@@ -1544,6 +1709,90 @@
 
   // build publications on load
   document.addEventListener('DOMContentLoaded', buildPublications);
+</script>
+
+
+
+
+<script>
+  function initFeatureCarousels() {
+    const carousels = document.querySelectorAll('[data-feature-carousel]');
+    if (!carousels.length) return;
+
+    carousels.forEach(carouselEl => {
+      const folder = carouselEl.dataset.wpFolder;
+      if (!folder) return;
+
+      const pubButtons = document.querySelectorAll(
+        '.pub-link[data-wp-folder="' + folder + '"]'
+      );
+      if (!pubButtons.length) return;
+
+      const slidesData = Array.from(pubButtons)
+        .map(btn => {
+          const ga = btn.dataset.ga;
+          if (!ga) return null;
+          return {
+            src: 'publications/' + folder + '/' + ga,
+            alt: btn.textContent.trim() || 'Publication image'
+          };
+        })
+        .filter(Boolean);
+
+      if (!slidesData.length) return;
+
+      // Replace placeholder
+      carouselEl.innerHTML = '';
+
+      const slidesWrapper = document.createElement('div');
+      slidesWrapper.className = 'feature-card-slides';
+
+      slidesData.forEach((data, idx) => {
+        const img = document.createElement('img');
+        img.src = data.src;
+        img.alt = data.alt;
+        img.loading = 'lazy';
+        img.className = 'feature-card-slide' + (idx === 0 ? ' active' : '');
+        slidesWrapper.appendChild(img);
+      });
+
+      carouselEl.appendChild(slidesWrapper);
+
+      let current = 0;
+      const slides = slidesWrapper.querySelectorAll('.feature-card-slide');
+
+      function show(idx) {
+        const total = slides.length;
+        if (!total) return;
+        current = (idx + total) % total;
+        slides.forEach((slide, i) => {
+          slide.classList.toggle('active', i === current);
+        });
+      }
+
+      // 🔁 Auto-rotate images (no buttons in the card)
+      if (slides.length > 1) {
+        setInterval(() => {
+          show(current + 1);
+        }, 5000); // change interval (ms) if you want faster/slower
+      }
+    });
+
+    // "Explore" buttons still open modal at the first publication of that WP
+    document.querySelectorAll('.feature-explore').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const folder = btn.dataset.wpFolder;
+        if (!folder) return;
+
+        const firstPubBtn = document.querySelector(
+          '.pub-link[data-wp-folder="' + folder + '"]'
+        );
+        if (firstPubBtn) {
+          firstPubBtn.click(); // reuse existing modal logic + prev/next
+        }
+      });
+    });
+  }
 </script>
 
 <script>

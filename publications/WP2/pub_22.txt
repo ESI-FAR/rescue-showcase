@@ -1,0 +1,7 @@
+Title: Publication number 2 
+Authors: Author A., Author B., Author C.
+Abstract: This is a long abstract describing your publication etc etc
+DOI: 10.1109/ACCESS.2024.3443061
+DOI URL: https://ieeexplore.ieee.org/document/10634523
+Repo: https://ieeexplore.ieee.org/document/10634523
+Source: https://ieeexplore.ieee.org/document/10634523
