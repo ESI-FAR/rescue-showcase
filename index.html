@@ -1598,10 +1598,17 @@
 
     function setModalListFromButton(btn) {
       const folder = btn.dataset.wpFolder;
+      const isFeatured = btn.dataset.featured === 'true';
+
       if (folder) {
-        modalList = Array.from(
-          document.querySelectorAll('.pub-link[data-wp-folder="' + folder + '"]')
-        );
+        // If the clicked button is featured, cycle only through featured
+        // publications for that WP. Otherwise, cycle through all.
+        let selector = '.pub-link[data-wp-folder="' + folder + '"]';
+        if (isFeatured) {
+          selector += '[data-featured="true"]';
+        }
+
+        modalList = Array.from(document.querySelectorAll(selector));
         modalIndex = Math.max(0, modalList.indexOf(btn));
       } else {
         modalList = [btn];
@@ -1609,6 +1616,7 @@
       }
       updateModalIndex();
     }
+
 
     if (navPrev && navNext) {
       navPrev.addEventListener('click', () => {
@@ -1680,6 +1688,11 @@
             btn.dataset.ga = pub.ga;
           }
 
+          // mark as featured for section carousel / modal
+          if (pub.featured) {
+            btn.dataset.featured = 'true';
+          }
+
           // extra metadata
           if (pub.authors)  btn.dataset.authors  = pub.authors;
           if (pub.doi)      btn.dataset.doi      = pub.doi;
@@ -1697,7 +1710,7 @@
         container.appendChild(card);
       });
 
-      // 🔑 now that publications (and .pub-link elements) exist,
+      // now that publications (and .pub-link elements) exist,
       // build the feature card carousels
       initFeatureCarousels();
 
@@ -1714,6 +1727,7 @@
 
 
 
+
 <script>
   function initFeatureCarousels() {
     const carousels = document.querySelectorAll('[data-feature-carousel]');
@@ -1723,9 +1737,17 @@
       const folder = carouselEl.dataset.wpFolder;
       if (!folder) return;
 
-      const pubButtons = document.querySelectorAll(
-        '.pub-link[data-wp-folder="' + folder + '"]'
+      // 1) Try featured publications first
+      let pubButtons = document.querySelectorAll(
+        '.pub-link[data-wp-folder="' + folder + '"][data-featured="true"]'
       );
+
+      // 2) Fallback to "all" if none are marked as featured
+      if (!pubButtons.length) {
+        pubButtons = document.querySelectorAll(
+          '.pub-link[data-wp-folder="' + folder + '"]'
+        );
+      }
       if (!pubButtons.length) return;
 
       const slidesData = Array.from(pubButtons)
@@ -1770,23 +1792,31 @@
         });
       }
 
-      // 🔁 Auto-rotate images (no buttons in the card)
+      // Auto-rotate images (no buttons in the card)
       if (slides.length > 1) {
         setInterval(() => {
           show(current + 1);
-        }, 5000); // change interval (ms) if you want faster/slower
+        }, 5000); // ms
       }
     });
 
-    // "Explore" buttons still open modal at the first publication of that WP
+    // "Explore" buttons: open modal at first *featured* publication
     document.querySelectorAll('.feature-explore').forEach(btn => {
       btn.addEventListener('click', () => {
         const folder = btn.dataset.wpFolder;
         if (!folder) return;
 
-        const firstPubBtn = document.querySelector(
-          '.pub-link[data-wp-folder="' + folder + '"]'
+        let firstPubBtn = document.querySelector(
+          '.pub-link[data-wp-folder="' + folder + '"][data-featured="true"]'
         );
+
+        // fallback: if none are featured, open the first pub of that WP
+        if (!firstPubBtn) {
+          firstPubBtn = document.querySelector(
+            '.pub-link[data-wp-folder="' + folder + '"]'
+          );
+        }
+
         if (firstPubBtn) {
           firstPubBtn.click(); // reuse existing modal logic + prev/next
         }
@@ -1794,6 +1824,7 @@
     });
   }
 </script>
+
 
 <script>
   (function () {

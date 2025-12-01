@@ -14,18 +14,20 @@
           "doiUrl": "https://ieeexplore.ieee.org/document/10634523",
           "repo": "https://ieeexplore.ieee.org/document/10634523",
           "source": "https://ieeexplore.ieee.org/document/10634523",
-          "scholar": "https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=Power+System+Stability+Analysis+From+Cyber+Attacks+Perspective&btnG="
+          "scholar": "https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=Power+System+Stability+Analysis+From+Cyber+Attacks+Perspective&btnG=",
+          "featured": true
         },
         {
           "file": "pub_22.txt",
           "ga": "pub_22_ga.svg",
-          "label": "Another WP2 paper",
-          "authors": "Another A, Author B.",
+          "label": "Another WP2 paper (not in highlights)",
+          "authors": "Author A, Author B.",
           "doi": "10.1234/example.2024.0001",
           "doiUrl": "https://doi.org/10.1234/example.2024.0001",
           "repo": "https://example.org/repo/wp2-paper-2",
           "source": "https://example.org/source/wp2-paper-2",
-          "scholar": "https://scholar.google.com/scholar?q=Another+WP2+paper"
+          "scholar": "https://scholar.google.com/scholar?q=Another+WP2+paper",
+          "featured": true
         }
       ]
     },
@@ -43,12 +45,13 @@
           "doiUrl": "https://ieeexplore.ieee.org/document/xyz",
           "repo": "https://ieeexplore.ieee.org/document/xyz",
           "source": "https://ieeexplore.ieee.org/document/xyz",
-          "scholar": "https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=Power+System+Stability+Analysis+From+Cyber+Attacks+Perspective&btnG="
+          "scholar": "https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=Power+System+Stability+Analysis+From+Cyber+Attacks+Perspective&btnG=",
+          "featured": true
         }
       ]
     },
     {
-      "id": "W4",
+      "id": "WP4",
       "title": "Incident response strategies using security games",
       "folder": "WP4",
       "publications": [
@@ -61,12 +64,13 @@
           "doiUrl": "https://ieeexplore.ieee.org/document/xyz",
           "repo": "https://ieeexplore.ieee.org/document/xyz",
           "source": "https://ieeexplore.ieee.org/document/xyz",
-          "scholar": "https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=Power+System+Stability+Analysis+From+Cyber+Attacks+Perspective&btnG="
+          "scholar": "https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=Power+System+Stability+Analysis+From+Cyber+Attacks+Perspective&btnG=",
+          "featured": true
         }
       ]
     },
     {
-      "id": "W5",
+      "id": "WP5",
       "title": "Human factors in incident response",
       "folder": "WP5",
       "publications": [
@@ -79,7 +83,8 @@
           "doiUrl": "https://ieeexplore.ieee.org/document/xyz",
           "repo": "https://ieeexplore.ieee.org/document/xyz",
           "source": "https://ieeexplore.ieee.org/document/xyz",
-          "scholar": "https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=Power+System+Stability+Analysis+From+Cyber+Attacks+Perspective&btnG="
+          "scholar": "https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=Power+System+Stability+Analysis+From+Cyber+Attacks+Perspective&btnG=",
+          "featured": true
         }
       ]
     }
