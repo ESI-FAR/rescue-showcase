@@ -2,7 +2,7 @@
   "workPackages": [
     {
       "id": "WP2",
-      "title": "Digital twin of integrated cyber-physical energy system",
+      "title": "WP2: Digital twin of integrated cyber-physical energy system",
       "folder": "WP2",
       "publications": [
         {
@@ -33,7 +33,7 @@
     },
     {
       "id": "WP3",
-      "title": "Intrusion detection and prevention system",
+      "title": "WP3: Intrusion detection and prevention system",
       "folder": "WP3",
       "publications": [
         {
@@ -52,38 +52,50 @@
     },
     {
       "id": "WP4",
-      "title": "Incident response strategies using security games",
+      "title": "WP4: Incident response strategies using security games",
       "folder": "WP4",
       "publications": [
         {
           "file": "pub_41.txt",
           "ga": "pub_41_ga.svg",
-          "label": "Incident response strategies using security games",
-          "authors": "Author A, Author B., Author C.",
-          "doi": "10.1109/ACCESS.2024.xyz",
-          "doiUrl": "https://ieeexplore.ieee.org/document/xyz",
-          "repo": "https://ieeexplore.ieee.org/document/xyz",
-          "source": "https://ieeexplore.ieee.org/document/xyz",
-          "scholar": "https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=Power+System+Stability+Analysis+From+Cyber+Attacks+Perspective&btnG=",
+          "label": "Game-Theoretical Modeling of Sequential Topology Attacks in Radially Operated Distribution Networks",
+          "authors": "Sho Cremers, Ioannis Semertzis, Marten Van Dijk, Han La Poutré",
+          "doi": "10.1109/PowerTech59965.2025.11180498",
+          "doiUrl": "https://doi.org/10.1109/PowerTech59965.2025.11180498",
+          "repo": "https://ieeexplore.ieee.org/document/11180498",
+          "source": "https://ieeexplore.ieee.org/document/11180498",
+          "scholar": "https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=Game-Theoretical+Modeling+of+Sequential+Topology+Attacks+in+Radially+Operated+Distribution+Networks&btnG=",
+          "featured": true
+        },
+        {
+          "file": "pub_42.txt",
+          "ga": "pub_42_ga.svg",
+          "label": "Topology Reduction for Determining Worst-Case Attacks in Radially Operated Distribution Networks",
+          "authors": "Sho Cremers, Marten Van Dijk, Han La Poutré",
+          "doi": "10.1109/ISGTEurope64741.2025.11305373",
+          "doiUrl": "https://doi.org/10.1109/ISGTEurope64741.2025.11305373",
+          "repo": "https://ieeexplore.ieee.org/document/11305373",
+          "source": "https://ieeexplore.ieee.org/document/11305373/",
+          "scholar": "https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=Topology+Reduction+for+Determining+Worst-Case+Attacks+in+Radially+Operated+Distribution+Networks&btnG=",
           "featured": true
         }
       ]
     },
     {
       "id": "WP5",
-      "title": "Human factors in incident response",
+      "title": "WP5: Human factors in incident response",
       "folder": "WP5",
       "publications": [
         {
           "file": "pub_51.txt",
           "ga": "pub_51_ga.svg",
-          "label": "Human factors in incident response",
-          "authors": "Author A, Author B., Author C.",
+          "label": "Human and Organizational Factors in Smart Grid Cybersecurity",
+          "authors": "Ronak Tejas Shah, Michel van Eeten, Wolter Pieters, Simon Parkin",
           "doi": "10.1109/ACCESS.2024.xyz",
-          "doiUrl": "https://ieeexplore.ieee.org/document/xyz",
-          "repo": "https://ieeexplore.ieee.org/document/xyz",
-          "source": "https://ieeexplore.ieee.org/document/xyz",
-          "scholar": "https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=Power+System+Stability+Analysis+From+Cyber+Attacks+Perspective&btnG=",
+          "doiUrl": "https://doi.org/10.1007/978-3-032-19540-1_3",
+          "repo": "https://link.springer.com/book/10.1007/978-3-032-19540-1",
+          "source": "https://link.springer.com/book/10.1007/978-3-032-19540-1",
+          "scholar": "https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=Human+and+Organizational+Factors+in+Smart+Grid+Cybersecurity%3A+A+Systematic+Literature+Review&btnG=",
           "featured": true
         }
       ]
