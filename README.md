@@ -1,6 +1,6 @@
 # RESCUE Showcase Website
 
-This repository contains the static showcase website for the **RESCUE — Resilience and Cyber Security of Integrated Cyber-Physical Energy Systems** project.
+This repository contains the static showcase website for the **RESCUE - Resilience and Cyber Security of Integrated Cyber-Physical Energy Systems** project.
 
 The site is a single-page static HTML app (no build system or framework) that you can host with any static web server (GitHub Pages, nginx, Apache, etc.).
 
