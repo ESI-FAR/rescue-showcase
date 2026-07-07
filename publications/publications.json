@@ -20,13 +20,13 @@
         {
           "file": "pub_22.txt",
           "ga": "pub_22_ga.svg",
-          "label": "Another WP2 paper (not in highlights)",
-          "authors": "Author A, Author B.",
-          "doi": "10.1234/example.2024.0001",
-          "doiUrl": "https://doi.org/10.1234/example.2024.0001",
-          "repo": "https://example.org/repo/wp2-paper-2",
-          "source": "https://example.org/source/wp2-paper-2",
-          "scholar": "https://scholar.google.com/scholar?q=Another+WP2+paper",
+          "label": "GraphCCI: Critical Components Identification for Enhancing Security of Cyber-Physical Power Systems",
+          "authors": "Yigu Liu, Alexandru Ştefanov, Ioannis Semertzis, Peter Palensky",
+          "doi": "10.1109/TICPS.2024.3436647",
+          "doiUrl": "https://doi.org/10.1109/TICPS.2024.3436647",
+          "repo": "https://ieeexplore.ieee.org/abstract/document/10620647",
+          "source": "https://ieeexplore.ieee.org/abstract/document/10620647",
+          "scholar": "https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=GraphCCI%3A+Critical+Components+Identification+for+Enhancing+Security+of+Cyber-Physical+Power+Systems&btnG=",
           "featured": true
         }
       ]
@@ -38,14 +38,50 @@
       "publications": [
         {
           "file": "pub_31.txt",
-          "ga": "pub_31_ga.svg",
-          "label": "Intrusion detection and prevention system",
-          "authors": "Author A, Author B., Author C.",
-          "doi": "10.1109/ACCESS.2024.xyz",
-          "doiUrl": "https://ieeexplore.ieee.org/document/xyz",
-          "repo": "https://ieeexplore.ieee.org/document/xyz",
-          "source": "https://ieeexplore.ieee.org/document/xyz",
-          "scholar": "https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=Power+System+Stability+Analysis+From+Cyber+Attacks+Perspective&btnG=",
+          "ga": "access-gagraphic-3507386.jpg",
+          "label": "Advanced persistent threat kill chain for cyber-physical power systems",
+          "authors": "Alfan Presekal, Alexandru Ştefanov, Vetrivel Subramaniam Rajkumar, Ioannis Semertzis, Peter Palensky",
+          "doi": "10.1109/ACCESS.2024.3507386",
+          "doiUrl": "https://doi.org/10.1109/ACCESS.2024.3507386",
+          "repo": "https://doi.org/10.1109/ACCESS.2024.3507386",
+          "source": "https://doi.org/10.1109/ACCESS.2024.3507386",
+          "scholar": "https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=Advanced+Persistent+Threat+Kill+Chain+for+Cyber-Physical+Power+Systems&btnG=",
+          "featured": true
+        },
+        {
+          "file": "pub_32.txt",
+          "ga": "pub_32_ga.svg",
+          "label": "Intrusion Detection System for Digital Substations using Semi-Supervised Learning and Traffic Distance Similarity Clustering",
+          "authors": "Alfan Presekal, Ioannis Semertzis, Himanshu Goyel, Peter Palensky, Alexandru Ştefanov",
+          "doi": "10.1109/TSG.2025.3611345",
+          "doiUrl": "https://doi.org/10.1109/TSG.2025.3611345",
+          "repo": "https://doi.org/10.1109/TSG.2025.3611345",
+          "source": "https://doi.org/10.1109/TSG.2025.3611345",
+          "scholar": "https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=Intrusion+Detection+System+for+Digital+Substations+Using+Semi-Supervised+Learning+and+Traffic+Distance+Similarity+Clustering&btnG=",
+          "featured": true
+        },
+        {
+          "file": "pub_33.txt",
+          "ga": "pub_33_ga.svg",
+          "label": "Spatio-Temporal Advanced Persistent Threat Detection and Correlation for Cyber-Physical Power Systems Using Enhanced GC-LSTM",
+          "authors": "Alfan Presekal, Alexandru Ştefanov, Ioannis Semertzis, Peter Palensky",
+          "doi": "10.1109/TSG.2024.3474039",
+          "doiUrl": "https://doi.org/10.1109/TSG.2024.3474039",
+          "repo": "https://doi.org/10.1109/TSG.2024.3474039",
+          "source": "https://doi.org/10.1109/TSG.2024.3474039",
+          "scholar": "https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=Spatio-Temporal+Advanced+Persistent+Threat+Detection+and+Correlation+for+Cyber-Physical+Power+Systems+Using+Enhanced+GC-LSTM&btnG=",
+          "featured": true
+        },
+        {
+          "file": "pub_34.txt",
+          "ga": "pub_34_ga.svg",
+          "label": "Towards Real-Time Distinction of Power System Faults and Cyber Attacks on Digital Substations Using Cyber-Physical Event Correlation",
+          "authors": "Ioannis Semertzis, Himanshu Goyel, Vetrivel S. Rajkumar, Alfan Presekal, Alexandru Ştefanov, Peter Palensky",
+          "doi": "10.1109/MSCPES62135.2024.10542753",
+          "doiUrl": "https://doi.org/10.1109/MSCPES62135.2024.10542753",
+          "repo": "https://doi.org/10.1109/MSCPES62135.2024.10542753",
+          "source": "https://doi.org/10.1109/MSCPES62135.2024.10542753",
+          "scholar": "https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=Towards+Real-Time+Distinction+of+Power+System+Faults+and+Cyber+Attacks+on+Digital+Substations+Using+Cyber-Physical+Event+Correlation&btnG=",
           "featured": true
         }
       ]

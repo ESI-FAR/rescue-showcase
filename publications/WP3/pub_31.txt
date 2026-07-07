@@ -1,0 +1,7 @@
+Title: Advanced persistent threat kill chain for cyber-physical power systems
+Authors: Alfan Presekal, Alexandru Ştefanov, Vetrivel Subramaniam Rajkumar, Ioannis Semertzis, Peter Palensky
+Abstract: Power systems are undergoing rapid digitalization. This introduces new vulnerabilities and cyber threats in future Cyber-Physical Power Systems (CPPS). Some of the most notable incidents include the cyber attacks on the power grid in Ukraine in 2015, 2016, and 2022, which employed Advanced Persistent Threat (APT) strategies that took several months to reach their objectives and caused power outages. This highlights the urgent need for an in-depth analysis of APTs on CPPS. However, existing frameworks for analyzing cyber attacks, i.e., MITRE ATT&CK ICS and Cyber Kill Chain, have limitations in comprehensively analyzing APTs in CPPS environments. To address this gap, we propose a novel Advanced Cyber-Physical Power System (ACPPS) kill chain framework. The ACPPS kill chain identifies the APT characteristics that are unique to power systems. It defines and examines the cyber-physical APT stages spanning from the initial phases of infiltration to cascading failures and a power system blackout. The proposed ACPPS kill chain is validated with real-world APT attacks on the power grid in Ukraine in 2015 and 2016, and cyber-physical simulations.
+DOI: 10.1109/ACCESS.2024.3507386
+DOI URL: https://doi.org/10.1109/ACCESS.2024.3507386
+Repo: https://doi.org/10.1109/ACCESS.2024.3507386
+Source: https://doi.org/10.1109/ACCESS.2024.3507386

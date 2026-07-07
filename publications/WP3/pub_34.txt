@@ -1,0 +1,7 @@
+Title: Towards Real-Time Distinction of Power System Faults and Cyber Attacks on Digital Substations Using Cyber-Physical Event Correlation
+Authors: Ioannis Semertzis, Himanshu Goyel, Vetrivel S. Rajkumar, Alfan Presekal, Alexandru Ştefanov, Peter Palensky
+Abstract: Cyber actors can target the unsecured IEC 61850 protocols in digital substations to open circuit breakers and affect the power system operation. Thus, system operators must detect cyber-physical anomalies and differentiate in real-time between power system faults and cyber attacks on digital substations for effective incident response. In this work, we propose a novel image encoding method for event correlation using cyber-physical time-series data, i.e., Phasor Measurement Units (PMUs) and Operational Technology (OT) network traffic. More specifically, we propose a dynamic variation of the Gramian Angular Field method, which generates image streams capturing in real-time the spatial-temporal features in PMU measurements and IEC 61850 GOOSE traffic throughput. The proposed method for cyber-physical event correlation uses an image fusion technique. The method is tested using the benchmark IEEE 9-bus system. It successfully distinguishes between three-phase faults and GOOSE cyber attacks, demonstrating its usefulness for power system cyber security analytics.
+DOI: 10.1109/MSCPES62135.2024.10542753
+DOI URL: https://doi.org/10.1109/MSCPES62135.2024.10542753
+Repo: https://doi.org/10.1109/MSCPES62135.2024.10542753
+Source: https://doi.org/10.1109/MSCPES62135.2024.10542753
