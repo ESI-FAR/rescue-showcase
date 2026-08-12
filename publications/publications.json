@@ -19,7 +19,7 @@
         },
         {
           "file": "pub_22.txt",
-          "ga": "pub_22_ga.svg",
+          "ga": "GraphCCI.JPG",
           "label": "GraphCCI: Critical Components Identification for Enhancing Security of Cyber-Physical Power Systems",
           "authors": "Yigu Liu, Alexandru Ştefanov, Ioannis Semertzis, Peter Palensky",
           "doi": "10.1109/TICPS.2024.3436647",
@@ -50,7 +50,7 @@
         },
         {
           "file": "pub_32.txt",
-          "ga": "pub_32_ga.svg",
+          "ga": "Intrusion_Detection_System_for_Digital_Substations.JPG",
           "label": "Intrusion Detection System for Digital Substations using Semi-Supervised Learning and Traffic Distance Similarity Clustering",
           "authors": "Alfan Presekal, Ioannis Semertzis, Himanshu Goyel, Peter Palensky, Alexandru Ştefanov",
           "doi": "10.1109/TSG.2025.3611345",
@@ -62,7 +62,7 @@
         },
         {
           "file": "pub_33.txt",
-          "ga": "pub_33_ga.svg",
+          "ga": "Spatio_Temporal.svg",
           "label": "Spatio-Temporal Advanced Persistent Threat Detection and Correlation for Cyber-Physical Power Systems Using Enhanced GC-LSTM",
           "authors": "Alfan Presekal, Alexandru Ştefanov, Ioannis Semertzis, Peter Palensky",
           "doi": "10.1109/TSG.2024.3474039",
@@ -74,7 +74,7 @@
         },
         {
           "file": "pub_34.txt",
-          "ga": "pub_34_ga.svg",
+          "ga": "Toward_Real_Time_Distinction.png",
           "label": "Towards Real-Time Distinction of Power System Faults and Cyber Attacks on Digital Substations Using Cyber-Physical Event Correlation",
           "authors": "Ioannis Semertzis, Himanshu Goyel, Vetrivel S. Rajkumar, Alfan Presekal, Alexandru Ştefanov, Peter Palensky",
           "doi": "10.1109/MSCPES62135.2024.10542753",
@@ -124,7 +124,7 @@
       "publications": [
         {
           "file": "pub_51.txt",
-          "ga": "pub_51_ga.svg",
+          "ga": "PRISMA.png",
           "label": "Human and Organizational Factors in Smart Grid Cybersecurity",
           "authors": "Ronak Tejas Shah, Michel van Eeten, Wolter Pieters, Simon Parkin",
           "doi": "10.1109/ACCESS.2024.xyz",
